@@ -78,23 +78,23 @@ Das Projekt soll jedoch die Erwartungen, respektive die Voraussetzungen
 aus Sicht des Testens an die Restschnittstellen der Java Service
 Projekte definieren.
 
-## Motivation Test Projekt
+## [Motivation dieses Test/Sample Projektes](./README.md)
 
 - Konzentration / Reduktion / Vereinfachung auf die das Wesentliche
 - Was ist ein Rest API?
 - Erste Tool Evaluation / Eindrücke
-- Das Test Projekt ist einfach ausbaubar - um gegebenen Falls neue
-  Anforderungen zu adressieren zb. It21 Db statt H2
+- Das Test Projekt ist einfach erweiterbar - um gegebenen Falls neue
+  Anforderungen zu adressieren z. B. It21 Db statt H2
 
 Das Projekt zeigt die verschiedenen Schichten in einem File:
-[SimpleApplication.kt](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt)
+[SimpleApplication.kt](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt)
 
-- [Spring Boot Application](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L16-L19)
-- [Rest Controller](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L25-L69)
-- [Service Schicht](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L69-L102)
-- [Datenbank Zugriffs Schicht](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L102-L108)
-- [Datenbank Objekt](src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L109)
-- [Service Komponente](src/main/kotlin/com/apgsga/apitestingsample/Calculator.kt#L8)
+- [Spring Boot Application](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L16-L19)
+- [Rest Controller](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L25-L69)
+- [Service Schicht](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L69-L102)
+- [Datenbank Zugriffs Schicht](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L102-L108)
+- [Datenbank Objekt](./src/main/kotlin/com/apgsga/apitestingsample/SimpleApplication.kt#L109)
+- [Service Komponente](./src/main/kotlin/com/apgsga/apitestingsample/Calculator.kt#L8)
 
 Aktuell wird die in Memory Db H2 verwendet. Es kann allenfalls die IT21
 Db, das Schema Testutils verwendet werden.
@@ -103,11 +103,11 @@ Das Projekt zeigt unterschiedliche Testansatz respektive Methoden, das
 Rest API aufzurufen:
 
 - (a)
-  [Automatisierte Junit 5 / Spring Boot Tests](src/test/kotlin/com/apgsga/apitestingsample/IntegrationTests.kt#L18)
+  [Automatisierte Junit 5 / Spring Boot Tests](./src/test/kotlin/com/apgsga/apitestingsample/IntegrationTests.kt#L18)
 - (b)
-  [Curl Scripts für alle Rest Api's der Applikation](src/test/scripts)
+  [Curl Scripts für alle Rest Api's der Applikation](./src/test/scripts)
 - (c)
-  [Gescriptetes spezifisches Testszenario](src/test/ruby/testscenario.rb)
+  [Gescriptetes spezifisches Testszenario](./src/test/ruby/testscenario.rb)
 
 Persönliche Wertung
 - (a) : Relativ viel Code für das Bootsstrappen und Erzeugen der
