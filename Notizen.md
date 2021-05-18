@@ -112,7 +112,7 @@ Rest API aufzurufen:
 Persönliche Wertung
 - (a) : Relativ viel Code für das Bootsstrappen und Erzeugen der
   Testdaten. Typesafe ist fast ein obstacle.
-- (c) : Da fehlt die „Logik". Mit Bash wird da schnell etwas mühsam.
+- (c) : Da fehlt die „Logik". Mit Bash wird das schnell etwas mühsam.
 - (d) : Nice, aber setzt Ruby Kenntnisse voraus, oder im mindesten ein
   polyglotter Entwickler
 
