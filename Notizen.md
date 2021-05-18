@@ -131,7 +131,7 @@ Rest API Factory Methoden.
 
 ###  Aktuelle Kandidatenliste
 
-Aktuelle Quellen:
+Quellen:
 https://www.softwaretestinghelp.com/api-testing-tools/#1_ReadyAPI
 https://medium.com/@alicealdaine/top-10-api-testing-tools-rest-soap-services-5395cb03cfa9
 
