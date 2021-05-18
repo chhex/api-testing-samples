@@ -116,13 +116,16 @@ Persönliche Wertung
 - (d) : Nice, aber setzt Ruby Kenntnisse voraus, oder im mindesten ein
   polyglotter Entwickler
 
-Aber man sieht, dass die grundsätzliche automation von Rest Api nicht zu
-schwierig sein darf / ist.
+Aber man sieht aber, dass die grundsätzliche automation von Rest Api's  nicht zu
+schwierig sein darf / ist: 
 
-Konstruktion und Parametrisierung der Json Objekte, allenfalls auch via
+1. Pre-Conditions fuer den Test 
+2. Konstruktion und Parametrisierung der Json Objekte, allenfalls auch via
 Rest API Factory Methoden.
+3. Aufruf der Rest API url mit dem Json Objekt.
+4. Post-Conditions Testen
 
-Aufruf der Rest API url mit dem Json Objekt.
+(1) ist wohl die groesste Herausforderung, aber ausserhalb des engeren Scope dieses Projektes 
 
 ## Tool Evaluation
 
@@ -168,6 +171,7 @@ TODO Analyse Market some more
 ## Anforderungen
 
 TODO - To be discussed
+- Scope : stimmt dieser? 
 - Zielpublikum (Entwickler vs Tester)
 - Usage Scenarios
 - Erwartungen
