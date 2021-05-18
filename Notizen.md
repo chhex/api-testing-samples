@@ -166,7 +166,7 @@ TODO Analyse Market some more
 
 ## Anforderungen
 
-TODO - Input necessary , Stichworte zb
+TODO - To be discussed
 - Zielpublikum (Entwickler vs Tester)
 - Usage Scenarios
 - Kosten
@@ -183,18 +183,18 @@ TODO - Input necessary , Stichworte zb
 
 ## Weiteres Vorgehen
 
-DRAFT , TODO
+DRAFT , TODO to be discussed
 
 1. Schrittweise verfeinerung der Anforderungsspezifikation
 2. Reduktion der Kandidaten Liste, (Papier) (alle)
 3. Verifikation Vollständigkeit (Papier)
 4. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
    Sample Projekt
-5. Auswahl Testgegenstand / Anwendungsgebiet
-   6. Analyse Integrations Test Ist vs Soll
-   7. Analyse Service API
-   8. Entwicklung Rest Controller
-9. Tests Anwendungsgebiet mit Tool / Proof of Concept
+5. Auswahl Testgegenstand / Anwendungsgebiet  
+   5.1 Analyse Integrations Test Ist vs Soll  
+   5.2 Analyse Service API  
+   5.3 Entwicklung Rest Controller
+6. Tests Anwendungsgebiet mit Tool / Proof of Concept
 
 ## Offene Punkte
 
