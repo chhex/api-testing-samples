@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS testdata
 (
     id   VARCHAR(60) DEFAULT RANDOM_UUID() PRIMARY KEY,
-    text VARCHAR NOT NULL
+    text_data VARCHAR NOT NULL
     );
