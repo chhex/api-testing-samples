@@ -12,12 +12,12 @@
 
 Nicht abschließend / subjektiv
 
-###  Ansätze Bereitstellung
+###  Ansätze Testdaten Bereitstellung
 
 - (a) : außerhalb der Tests gemanagte und vordefinierte Testdaten für
   einen applications Kontext (Light)
 - (b) (automatisierte) Suche nach geeigneten Testdaten (Clones, Light)
-- (c) It21 Clone: (automatisiertes) Kreieren von Testdaten (Clones,
+- (c) (automatisiertes) Kreieren von Testdaten (Clones,
   Light)
 - (d) Kombination von a) , b), c)
 
@@ -52,7 +52,7 @@ Nicht abschließend / subjektiv
 - [Spock](https://spockframework.org) : Groovy basiertes Testframework,
   intuitiv , addressiert Adressiert Junit 4  an below Limitations
 
-####  Automatisiertes Testen von IT21 Funktionalitaet
+### Automatisiertes Testen von IT21 Funktionalitaet
 
  Ansätze / Ist Beschreiben / Analysieren Pro / Cons
 
@@ -148,9 +148,6 @@ https://medium.com/@alicealdaine/top-10-api-testing-tools-rest-soap-services-539
 14. [Fiddler](https://www.telerik.com/fiddler) : Contract Sales
 15. [Airborne](https://github.com/brooklynDev/airborne)
 16. [Accelq](https://www.accelq.com) : Contact Sales
-17. 
-
-DSL basierte Restclients:
 17. [Helium](https://github.com/stanfy/helium)
 18. [rest-client](https://github.com/rest-client/rest-client)
 
@@ -165,6 +162,39 @@ Und natürlich Kombinationen
 
 ## Anforderungen
 
-TODO - Input necessary
+TODO - Input necessary , Stichworte zb
+- Zielpublikum
+- Kosten
+- Security
+- Rest API va Db Schnittstellen
+- UI vs Scripting
+- DSL
+- Automation
+- Life - cycle , welches das Tool abdecken soll
+- Innerhalb / Ausserhalb IDE
+- Eigenes UI
 
 
+## Weiteres Vorgehen
+
+DRAFT , TODO
+
+1. Grobe Anforderungsspezifikation
+2. Reduktion der Kandidaten Liste, Papier (alle)
+3. Verifikation Vollständigkeit
+4. Kurz-Evaluation und Reduktion auf 2 - 3 Kandidaten anhand Sample
+   Projekt
+5. Auswahl Testgegenstand / Anwendungsgebiet
+   4. Analyse Test Ist / Soll
+   5. Analyse Service API
+   6. Entwicklung Rest Controller
+6. Tests Anwendungsgebiet mit Tool / Proof of Concept
+
+## Offene Punkte
+
+- [ ] Security von Rest API's - allenfalls in Sample Projekt einbauen
+- [ ] Entwicklung eigenes Test DSL - adaptiert an Apg Anforderungen
+- [ ] Test Setup via Rest API oder direkt via JDBC
+- [ ] Verbesserung / Vereinheitlichung Java Tests
+- [ ] Testen via Rest API vs direktes Testen auf der Datenbank
+      Schnittstelle, allenfalls mit some Java/ Script glue darum herum
