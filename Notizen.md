@@ -156,10 +156,13 @@ Was beim ersten Durchblick auffällt: Es gibt Tools, wie zb Swagger,
 welches den ganzen Life-cycle abdecken , dh auch die Spezifikation und
 das Entwickeln von Rest API's.
 
-Im Weiteren gibt es solche, welche ein script bares DSL anbieten vs ein
-UI basiertes interaktives Zusammenstellen von Rest Aufrufen
+Im Weiteren gibt es solche, welche ein script bares Rest Client DSL
+anbieten. Andere welche ein UI basiertes interaktives Zusammenstellen
+von Rest Aufrufen erlauben.
 
 Und natürlich Kombinationen
+
+TODO Analyse Market some more
 
 ## Anforderungen
 
@@ -182,16 +185,16 @@ TODO - Input necessary , Stichworte zb
 
 DRAFT , TODO
 
-1. Schrittweise verfeinerung der  Anforderungsspezifikation
-2. Reduktion der Kandidaten Liste, Papier (alle)
-3. Verifikation Vollständigkeit
-4. Kurz-Evaluation und Reduktion auf 2 - 3 Kandidaten anhand Sample
-   Projekt
+1. Schrittweise verfeinerung der Anforderungsspezifikation
+2. Reduktion der Kandidaten Liste, (Papier) (alle)
+3. Verifikation Vollständigkeit (Papier)
+4. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
+   Sample Projekt
 5. Auswahl Testgegenstand / Anwendungsgebiet
-   4. Analyse Test Ist / Soll
-   5. Analyse Service API
-   6. Entwicklung Rest Controller
-6. Tests Anwendungsgebiet mit Tool / Proof of Concept
+   6. Analyse Integrations Test Ist vs Soll
+   7. Analyse Service API
+   8. Entwicklung Rest Controller
+9. Tests Anwendungsgebiet mit Tool / Proof of Concept
 
 ## Offene Punkte
 
