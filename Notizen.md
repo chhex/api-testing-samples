@@ -146,10 +146,11 @@ https://medium.com/@alicealdaine/top-10-api-testing-tools-rest-soap-services-539
 12. [API Fortress](https://apifortress.com) : Contract Sales
 13. [Pyresttest](https://github.com/svanoort/pyresttest) : Open Source
 14. [Fiddler](https://www.telerik.com/fiddler) : Contract Sales
-15. [Airborne](https://github.com/brooklynDev/airborne)
+15. [Airborne](https://github.com/brooklynDev/airborne) : Open Source
 16. [Accelq](https://www.accelq.com) : Contact Sales
-17. [Helium](https://github.com/stanfy/helium)
-18. [rest-client](https://github.com/rest-client/rest-client)
+17. [Helium](https://github.com/stanfy/helium) : Open Source
+18. [rest-client](https://github.com/rest-client/rest-client) : Open
+    Source
 
 Was beim ersten Durchblick auffällt: Es gibt Tools, wie zb Swagger,
 welches den ganzen Life-cycle abdecken , dh auch die Spezifikation und
@@ -163,15 +164,17 @@ Und natürlich Kombinationen
 ## Anforderungen
 
 TODO - Input necessary , Stichworte zb
-- Zielpublikum
+- Zielpublikum (Entwickler vs Tester)
+- Usage Scenarios
 - Kosten
 - Security
-- Rest API va Db Schnittstellen
+- Rest API va Db Schnittstellen - alles via Rest API?
 - UI vs Scripting
 - DSL
-- Automation
-- Life - cycle , welches das Tool abdecken soll
-- Innerhalb / Ausserhalb IDE
+- Automation (Jenkins)
+- Life - cycle , welches das Tool abdecken soll, nur Testen oder auch
+  das Entwicklen
+- Innerhalb / Ausserhalb des Entwickler IDE
 - Eigenes UI
 
 
@@ -179,7 +182,7 @@ TODO - Input necessary , Stichworte zb
 
 DRAFT , TODO
 
-1. Grobe Anforderungsspezifikation
+1. Schrittweise verfeinerung der  Anforderungsspezifikation
 2. Reduktion der Kandidaten Liste, Papier (alle)
 3. Verifikation Vollständigkeit
 4. Kurz-Evaluation und Reduktion auf 2 - 3 Kandidaten anhand Sample
@@ -192,9 +195,11 @@ DRAFT , TODO
 
 ## Offene Punkte
 
-- [ ] Security von Rest API's - allenfalls in Sample Projekt einbauen
-- [ ] Entwicklung eigenes Test DSL - adaptiert an Apg Anforderungen
+- [ ] Security resp Autorisierung von Rest API's, wie?: allenfalls in
+      Sample Projekt einbauen
+- [ ] Entwicklung eigenes Test DSL - adaptiert an Apg Anforderungen :
+      Option?
 - [ ] Test Setup via Rest API oder direkt via JDBC
-- [ ] Verbesserung / Vereinheitlichung Java Tests
+- [ ] Verbesserung / Vereinheitlichung Java basierter Tests
 - [ ] Testen via Rest API vs direktes Testen auf der Datenbank
       Schnittstelle, allenfalls mit some Java/ Script glue darum herum
