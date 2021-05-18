@@ -185,7 +185,7 @@ TODO - To be discussed
 
 ## Weiteres Vorgehen
 
-DRAFT , TODO to be discussed
+DRAFT , TODO to be discussed , was , wer
 
 1. Schrittweise verfeinerung der Anforderungsspezifikation
 2. Beschreiben Ist Stand automatisierte funktionale Integrationstests
