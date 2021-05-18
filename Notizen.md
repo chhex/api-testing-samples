@@ -1,4 +1,4 @@
-# Notizen:  Api Testing in Apg
+# Api Testing in Apg
 
 ## Agenda
 
@@ -12,8 +12,7 @@
 
 Nicht abschließend / subjektiv
 
-###  Ansätze Testdaten Bereitstellung
-
+### Ansätze Testdaten Bereitstellung
 - (a) : außerhalb der Tests gemanagte und vordefinierte Testdaten für
   einen applications Kontext (Light)
 - (b) (automatisierte) Suche nach geeigneten Testdaten (Clones, Light)
