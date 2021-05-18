@@ -53,9 +53,11 @@ Nicht abschließend / subjektiv
 
 ### Automatisiertes Testen von IT21 Funktionalitaet
 
- Ansätze / Ist Beschreiben / Analysieren Pro / Cons
+TODO Ansätze / Ist Beschreiben / Analysieren Pro / Cons
 
 PD2, Digiflex? , Faktura, weitere
+
+als Input zur Tool Evalution und des weiteres Vorgehens
 
 ## Scope des Projektes
 
@@ -186,15 +188,16 @@ TODO - To be discussed
 DRAFT , TODO to be discussed
 
 1. Schrittweise verfeinerung der Anforderungsspezifikation
-2. Reduktion der Kandidaten Liste, (Papier) (alle)
-3. Verifikation Vollständigkeit (Papier)
-4. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
+2. Beschreiben Ist Stand automatisierte funktionale Integrationstests
+3. Reduktion der Kandidaten Liste, (Papier) (alle)
+4. Verifikation Vollständigkeit (Papier)
+5. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
    Sample Projekt
-5. Auswahl Testgegenstand / Anwendungsgebiet  
-   5.1 Analyse Integrationstests Ist vs Soll  
-   5.2 Analyse Service API  
-   5.3 Entwicklung Rest Controller
-6. Tests Anwendungsgebiet mit Tool / Proof of Concept
+6. Auswahl Testgegenstand / Anwendungsgebiet  
+   6.1 Analyse Integrationstests Ist vs Soll  
+   6.2 Analyse Service API  
+   6.3 Entwicklung Rest Controller
+7. Tests Anwendungsgebiet mit Tool / Proof of Concept
 
 ## Offene Punkte
 
