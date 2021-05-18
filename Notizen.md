@@ -171,6 +171,7 @@ TODO - To be discussed
 - Zielpublikum (Entwickler vs Tester)
 - Usage Scenarios
 - Erwartungen
+- Platform Prerequisites (Windows,WSL, etc)
 - Kosten
 - Security
 - Rest API va Db Schnittstellen - alles via Rest API?
