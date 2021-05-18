@@ -78,7 +78,7 @@ Das Projekt soll jedoch die Erwartungen, respektive die Voraussetzungen
 aus Sicht des Testens an die Restschnittstellen der Java Service
 Projekte definieren.
 
-## [Motivation dieses Test/Sample Projektes](./README.md)
+## [Motivation dieses Test/Sample Projektes](./)
 
 - Konzentration / Reduktion / Vereinfachung auf die das Wesentliche
 - Was ist ein Rest API?
