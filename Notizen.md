@@ -181,7 +181,7 @@ TODO - To be discussed
 - Security
 - Rest API va Db Schnittstellen - alles via Rest API?
 - UI vs Scripting
-- DSL
+- DSL allenfalls 
 - Automation (Jenkins)
 - Life - cycle , welches das Tool abdecken soll, nur Testen oder auch
   das Entwicklen
