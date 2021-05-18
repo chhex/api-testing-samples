@@ -122,10 +122,11 @@ schwierig sein darf / ist:
 1. Pre-Conditions fuer den Test 
 2. Konstruktion und Parametrisierung der Json Objekte, allenfalls auch via
 Rest API Factory Methoden.
-3. Aufruf der Rest API url mit dem Json Objekt.
+3. Aufruf des zu testenden Rest API url mit dem Json Objekt und allenfalls Path Variablen 
 4. Post-Conditions Testen
+5. Aufräumen 
 
-(1) ist wohl die groesste Herausforderung, aber ausserhalb des engeren Scope dieses Projektes 
+(1) und allenfalls (5) ist wohl die grösste Herausforderung, aber ausserhalb des engeren Scope dieses Projektes 
 
 ## Tool Evaluation
 
