@@ -2,7 +2,7 @@
 
 ## Agenda
 
-- [ ] Integration Testing in Apg
+- [ ] Integrations Testing in Apg
 - [ ] Scope des Projektes
 - [ ] Motivation Test Project
 - [ ] Aktueller Stand Tool Kandidaten
@@ -58,7 +58,7 @@ Nicht abschließend / subjektiv
 
 PD2, Digiflex? , Faktura, weitere
 
-## Scope / Erwartungen des Projektes
+## Scope des Projektes
 
 Wahl einer Toolchain, welches automatisierte Integrations Tests von IT21
 Funktionalität, die auf dem [Rest Api](https://restfulapi.net) eines
@@ -169,6 +169,7 @@ TODO Analyse Market some more
 TODO - To be discussed
 - Zielpublikum (Entwickler vs Tester)
 - Usage Scenarios
+- Erwartungen
 - Kosten
 - Security
 - Rest API va Db Schnittstellen - alles via Rest API?
@@ -191,7 +192,7 @@ DRAFT , TODO to be discussed
 4. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
    Sample Projekt
 5. Auswahl Testgegenstand / Anwendungsgebiet  
-   5.1 Analyse Integrations Test Ist vs Soll  
+   5.1 Analyse Integrationstests Ist vs Soll  
    5.2 Analyse Service API  
    5.3 Entwicklung Rest Controller
 6. Tests Anwendungsgebiet mit Tool / Proof of Concept
