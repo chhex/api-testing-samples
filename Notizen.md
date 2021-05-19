@@ -210,6 +210,7 @@ DRAFT , TODO to be discussed , was , wer
 
 - [ ] Security resp Autorisierung von Rest API's, wie?: allenfalls in
       Sample Projekt einbauen
+- [ ] Ist der Scope zu eng? Einige dieser Tools kommen von Performance- / Loadtesting 
 - [ ] Entwicklung eigenes Test DSL - adaptiert an Apg Anforderungen :
       Option?
 - [ ] Test Setup via Rest API oder direkt via JDBC
