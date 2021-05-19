@@ -47,7 +47,7 @@ Nicht abschließend / subjektiv
   zentrisches Testen
 - [TestNg](https://testng.org/doc/) : Adressiert Junit 4 an below
   Limitation, Test Gruppe , Ablaeufe etc
-- [Spring Boot Test](https://spring.io/guides/gs/testing-web/)
+- [Spring Boot Test](https://spring.io/guides/gs/testing-web/) : Spring Boot instrumentieren fuer JUnit Tests
 - [Spock](https://spockframework.org) : Groovy basiertes Testframework,
   intuitiv , addressiert Adressiert Junit 4  an below Limitations
 
@@ -71,7 +71,7 @@ Anwendungsgebietes.
 Grundsätzlich baut das Projekt auf den Test Erfahrungen in der Apg auf.
 Es kann mit den erarbeiteten Findings allenfalls Input zur Verbesserung
 eines oder mehrerer der in der Apg etablierten Test Ansätze liefern. Es
-wird aber nicht grundsätzlich an den Ansatz immanenten Restriktionen
+wird aber nicht grundsätzlich an den immanenten Restriktionen 
 ändern können.
 
 Das Projekt soll jedoch die Erwartungen, respektive die Voraussetzungen
@@ -99,8 +99,8 @@ Das Projekt zeigt die verschiedenen Schichten in einem File:
 Aktuell wird die in Memory Db H2 verwendet. Es kann allenfalls die IT21
 Db, das Schema Testutils verwendet werden.
 
-Das Projekt zeigt unterschiedliche Testansatz respektive Methoden, das
-Rest API aufzurufen:
+Das Projekt zeigt unterschiedliche Testansätze respektive Methoden
+Rest APIäs aufzurufen:
 
 - (a)
   [Automatisierte Junit 5 / Spring Boot Tests](./src/test/kotlin/com/apgsga/apitestingsample/IntegrationTests.kt#L18)
@@ -111,12 +111,12 @@ Rest API aufzurufen:
 
 Persönliche Wertung
 - (a) : Relativ viel Code für das Bootsstrappen und Erzeugen der
-  Testdaten. Typesafe ist fast ein obstacle.
+  Testdaten. Typesafeness ist in diesem Kontext fast ein obstacle.
 - (c) : Da fehlt die „Logik". Mit Bash wird das schnell etwas mühsam.
 - (d) : Nice, aber setzt Ruby Kenntnisse voraus, oder im mindesten ein
   polyglotter Entwickler
 
-Aber man sieht aber, dass die grundsätzliche automation von Rest Api's  nicht zu
+Aber man sieht, dass die grundsätzliche Automation von Rest Api's Aufrufen nicht zu
 schwierig sein darf / ist: 
 
 1. Pre-Conditions fuer den Test 
@@ -178,6 +178,7 @@ TODO - To be discussed
 - Erwartungen
 - Platform Prerequisites (Windows,WSL, etc)
 - Kosten
+- Licence
 - Security
 - Rest API va Db Schnittstellen - alles via Rest API?
 - UI vs Scripting
@@ -193,7 +194,7 @@ TODO - To be discussed
 
 DRAFT , TODO to be discussed , was , wer
 
-1. Schrittweise verfeinerung der Anforderungsspezifikation
+1. Schrittweise Verfeinerung der Anforderungsspezifikation
 2. Beschreiben Ist Stand automatisierte funktionale Integrationstests
 3. Reduktion der Kandidaten Liste, (Papier) (alle)
 4. Verifikation Vollständigkeit (Papier)
