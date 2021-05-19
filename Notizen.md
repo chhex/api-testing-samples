@@ -201,8 +201,8 @@ DRAFT , TODO to be discussed , was , wer
 4. Verifikation Vollständigkeit (Papier)
 5. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
    Sample Projekt
-6. Auswahl Testgegenstand / Anwendungsgebiet  
-   6.1 Analyse Integrationstests Ist vs Soll  
+6. Auswahl Testgegenstand / Anwendungsgebiet s 6.1 Analyse
+   Integrationstests Ist vs Soll  
    6.2 Analyse Service API  
    6.3 Entwicklung Rest Controller
 7. Tests Anwendungsgebiet mit Tool / Proof of Concept

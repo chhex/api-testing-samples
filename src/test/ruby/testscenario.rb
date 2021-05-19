@@ -35,6 +35,7 @@ puts 'done.'
 # Create First Data
 puts 'Testcase : Creating Test Data'
 json_test_data = JSON.generate({ 'textData' => "Some Data at #{Time.now}" })
+puts json_test_data
 result = RestClient.post "#{opts[:baseUrl]}/api/testdata", json_test_data, { content_type: :json, accept: :json }
 nr = retrieve_all_pretty(opts)
 raise "Expected one Testdata entries , but got #{nr}" unless nr == 1

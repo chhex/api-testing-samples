@@ -15,6 +15,15 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	test {
+		resources {
+			srcDirs("src/test/karate")
+		}
+	}
+}
+
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -28,6 +37,8 @@ dependencies {
 		exclude(module = "mockito-core")
 	}
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testImplementation("com.intuit.karate:karate-apache:0.9.6")
+	testImplementation("com.intuit.karate:karate-junit5:0.9.6")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
