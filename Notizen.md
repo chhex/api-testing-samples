@@ -195,7 +195,8 @@ TODO - To be discussed
 DRAFT , TODO to be discussed , was , wer
 
 1. Schrittweise Verfeinerung der Anforderungsspezifikation
-2. Beschreiben Ist Stand automatisierte funktionale Integrationstests
+2. Beschreiben Ist Stand von automatisierten funktionalen
+   Integrationstests in der Apg
 3. Reduktion der Kandidaten Liste, (Papier) (alle)
 4. Verifikation Vollständigkeit (Papier)
 5. Kurz-Evaluation, Demo und Reduktion auf 2 - 3 Kandidaten anhand
