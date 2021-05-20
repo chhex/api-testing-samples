@@ -2,7 +2,7 @@
 Feature: Some basic Test scenarios against the Sample Project
 
   Background:
-    * url 'http://localhost:8080/api'
+    * url baseUrl
 
   Scenario: Delete all Testdata , Create, Update and Delete some Testdata
 
@@ -16,6 +16,7 @@ Feature: Some basic Test scenarios against the Sample Project
     When method get
     Then status 200
     And match response == []
+    
 
     # Create Testdata
     Given path 'testdata'
@@ -71,6 +72,7 @@ Feature: Some basic Test scenarios against the Sample Project
 
     # Calculate
     Given path 'testdata',next_id, '2+2'
+    And request { }
     When method put
     Then status 200
     And match response == { id: '#(next_id)', textData: 'Calculation Result of 2+2 is 4' }

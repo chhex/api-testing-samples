@@ -1,10 +1,8 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
 	id("org.springframework.boot") version "2.4.5"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.4.32"
-	kotlin("plugin.spring") version "1.4.32"
+	id("org.jetbrains.kotlin.jvm") version "1.4.32"
+	id("org.jetbrains.kotlin.plugin.spring") version "1.4.32"
 }
 
 group = "com.apgsga"
@@ -15,26 +13,19 @@ repositories {
 	mavenCentral()
 }
 
-sourceSets {
-	test {
-		resources {
-			srcDirs("src/test/karate")
-		}
-	}
-}
-
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+ 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
-		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-		exclude(module = "mockito-core")
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+		exclude module: "mockito-core"
 	}
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testImplementation("com.intuit.karate:karate-apache:0.9.6")
@@ -42,13 +33,28 @@ dependencies {
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
-tasks.withType<KotlinCompile> {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
+		freeCompilerArgs = ["-Xjsr305=strict"]
 		jvmTarget = "1.8"
 	}
 }
 
-tasks.withType<Test> {
+test {
 	useJUnitPlatform()
+	systemProperty "karate.options", System.properties.getProperty("karate.options")
+    systemProperty "karate.env", System.properties.getProperty("karate.env")
+	 outputs.upToDateWhen { false }
+    testLogging.showStandardStreams = true
+}
+
+
+sourceSets {
+    test {
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+
+    }
 }

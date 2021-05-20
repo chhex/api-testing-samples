@@ -1,18 +1,41 @@
 package com.apgsga.apitestingsample
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Configuration
 import org.springframework.data.annotation.Id
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.config.annotation.SecurityConfigurerAdapter
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.web.DefaultSecurityFilterChain
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.filter.OncePerRequestFilter
+import java.io.IOException
+import javax.servlet.FilterChain
+import javax.servlet.ServletException
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
+
 
 // Spring Boot Application
-@SpringBootApplication
+@SpringBootApplication(exclude = [SecurityAutoConfiguration::class])
 class ApiTestingSampleApplication
 
 fun main(args: Array<String>) {
@@ -22,6 +45,7 @@ fun main(args: Array<String>) {
 // Rest Api
 @RestController
 @RequestMapping("/api/testdata")
+@PreAuthorize("hasRole('ROLE_USER')")
 class TestController(val service: TestDataService) {
 
     @GetMapping
@@ -63,6 +87,71 @@ class TestController(val service: TestDataService) {
 
 }
 
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+
+    @Value("\${skipSecurity}")
+    val skipSecurity: Boolean = true
+
+
+    override fun configure(http: HttpSecurity) {
+
+        http.csrf().disable()
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        http.authorizeRequests() //
+            .anyRequest().authenticated()
+
+        // Apply JWT
+        http.apply(JwtTokenFilterConfigurer(skipSecurity))
+    }
+
+
+
+}
+
+class JwtTokenFilterConfigurer(val skipSecurity : Boolean) :
+    SecurityConfigurerAdapter<DefaultSecurityFilterChain?, HttpSecurity>() {
+
+    @Throws(Exception::class)
+    override fun configure(http: HttpSecurity) {
+        val customFilter = JwtTokenFilter(skipSecurity)
+        http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter::class.java)
+    }
+
+}
+class JwtTokenFilter(val skipSecurity: Boolean) : OncePerRequestFilter() {
+
+    @Throws(ServletException::class, IOException::class)
+    override fun doFilterInternal(
+        httpServletRequest: HttpServletRequest,
+        httpServletResponse: HttpServletResponse,
+        filterChain: FilterChain
+    ) {
+        val bearerToken = httpServletRequest.getHeader("Authorization")
+
+        if (skipSecurity || bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            var userDetails : UserDetails = User
+                .withUsername("testuser")//
+                .password("testpasswd")//
+                .authorities("ROLE_USER")//
+                .accountExpired(false)//
+                .accountLocked(false)//
+                .credentialsExpired(false)//
+                .disabled(false)//
+                .build();
+            SecurityContextHolder.getContext().authentication =
+                UsernamePasswordAuthenticationToken(userDetails, "", userDetails.authorities);
+
+        } else {
+            SecurityContextHolder.clearContext()
+        }
+        filterChain.doFilter(httpServletRequest, httpServletResponse)
+    }
+
+}
+
 // Service Layer
 
 @Service
@@ -98,6 +187,8 @@ class TestDataService(val db: TestDataRepository) {
         return db.save(testData)
     }
 }
+
+
 
 interface TestDataRepository : CrudRepository<TestData, String> {
 
