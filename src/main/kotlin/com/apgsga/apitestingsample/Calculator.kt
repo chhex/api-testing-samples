@@ -1,70 +1,47 @@
 package com.apgsga.apitestingsample
 
 import org.springframework.stereotype.Component
-import java.util.*
-
 
 @Component
 class Calculator {
-    fun calculate(calcString: String): Int {
-        // delete white spaces
-        var s = calcString
-        s = s.replace(" ".toRegex(), "")
-        val stack = Stack<String>()
-        val arr = s.toCharArray()
-        var sb = StringBuilder()
-        for (i in arr.indices) {
-            if (arr[i] == ' ') continue
-            if (arr[i] in '0'..'9') {
-                sb.append(arr[i])
-                if (i == arr.size - 1) {
-                    stack.push(sb.toString())
+    fun calculate(calcString: String): Float {
+        var index = 0 // current index
+        val skipWhile = { cond: (Char) -> Boolean -> while (index < calcString.length && cond(calcString[index])) index++ }
+        val tryRead = { c: Char -> (index < calcString.length && calcString[index] == c).also { if (it) index++ } }
+        val skipWhitespaces = { skipWhile { it.isWhitespace() } }
+        val tryReadOp = { op: Char -> skipWhitespaces().run { tryRead(op) }.also { if (it) skipWhitespaces() } }
+        var rootOp: () -> Float = { 0.0f }
+
+        val num = {
+            if (tryReadOp('(')) {
+                rootOp().also {
+                    tryReadOp(')').also { if (!it) throw IllegalExpressionException(index, "Missing )") }
                 }
             } else {
-                if (sb.isNotEmpty()) {
-                    stack.push(sb.toString())
-                    sb = StringBuilder()
-                }
-                if (arr[i] != ')') {
-                    stack.push(String(charArrayOf(arr[i])))
-                } else {
-                    // when meet ')', pop and calculate
-                    val t = ArrayList<String>()
-                    while (!stack.isEmpty()) {
-                        val top = stack.pop()
-                        if (top == "(") {
-                            break
-                        } else {
-                            t.add(0, top)
-                        }
-                    }
-                    var temp = 0
-                    temp = if (t.size == 1) t[0].toInt() else {
-                        getTemp(t, temp)
-                    }
-                    stack.push(temp.toString())
+                val start = index
+                tryRead('-') or tryRead('+')
+                skipWhile { it.isDigit() || it == '.' }
+                try {
+                    calcString.substring(start, index).toFloat()
+                } catch (e: NumberFormatException) {
+                    throw IllegalExpressionException(start, "Invalid number", cause = e)
                 }
             }
         }
-        val t = ArrayList<String>()
-        while (!stack.isEmpty()) {
-            val elem = stack.pop()
-            t.add(0, elem)
+
+        fun binary(left: () -> Float, op: Char): List<Float> = mutableListOf(left()).apply {
+            while (tryReadOp(op)) addAll(binary(left, op))
         }
-        val temp = 0
-        return getTemp(t, temp)
+
+        val div = { binary(num, '/').reduce { a, b -> a / b } }
+        val mul = { binary(div, '*').reduce { a, b -> a * b } }
+        val sub = { binary(mul, '-').reduce { a, b -> a - b } }
+        val add = { binary(sub, '+').reduce { a, b -> a + b } }
+
+        rootOp = add
+        return rootOp().also { if (index < calcString.length) throw IllegalExpressionException(index, "Invalid expression") }
     }
 
-    private fun getTemp(t: ArrayList<String>, lastTemp: Int): Int {
-        var temp = lastTemp
-        var i = t.size - 1
-        while (i > 0) {
-            temp += if (t[i - 1] == "-") -t[i].toInt() else {
-                t[i].toInt()
-            }
-            i -= 2
-        }
-        temp += t[0].toInt()
-        return temp
-    }
+    class IllegalExpressionException(val index: Int, message: String? = null, cause: Throwable? = null) :
+        IllegalArgumentException("$message at:$index", cause)
 }

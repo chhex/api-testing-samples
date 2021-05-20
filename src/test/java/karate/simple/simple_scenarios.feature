@@ -75,7 +75,7 @@ Feature: Some basic Test scenarios against the Sample Project
     And request { }
     When method put
     Then status 200
-    And match response == { id: '#(next_id)', textData: 'Calculation Result of 2+2 is 4' }
+    And match response == { id: '#(next_id)', textData: 'Calculation Result of 2+2 is 4.0' }
 
     # Delete First
     Given path 'testdata',first_id
@@ -86,5 +86,5 @@ Feature: Some basic Test scenarios against the Sample Project
     Given path 'testdata'
     When method get
     Then status 200
-    And match response contains { id: '#(next_id)', textData: 'Calculation Result of 2+2 is 4' }
+    And match response contains { id: '#(next_id)', textData: 'Calculation Result of 2+2 is 4.0' }
     And response.length == 1
