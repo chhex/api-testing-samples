@@ -19,7 +19,7 @@ import java.util.*
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
+class RestControlleIntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
 
     @BeforeAll
     fun setup() {

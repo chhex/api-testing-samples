@@ -103,7 +103,7 @@ Das Projekt zeigt unterschiedliche Testansätze respektive Methoden
 Rest APIäs aufzurufen:
 
 - (a)
-  [Automatisierte Junit 5 / Spring Boot Tests](./src/test/kotlin/com/apgsga/apitestingsample/IntegrationTests.kt#L18)
+  [Automatisierte Junit 5 / Spring Boot Tests](src/test/kotlin/com/apgsga/apitestingsample/IntegrationTests.kt#L18)
 - (b)
   [Curl Scripts für alle Rest Api's der Applikation](./src/test/scripts)
 - (c)
