@@ -5,7 +5,7 @@ Feature: Some basic Test scenarios against the Sample Project
     * url baseUrl
 
   Scenario: Delete all Testdata , Create, Update and Delete some Testdata
-
+    * configure headers = { Authorization: 'Bearer .... whatever ' }
     # Delete all Testdata
     Given path 'testdata'
     When method delete

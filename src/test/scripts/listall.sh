@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-curl  http://localhost:8080/api/testdata
+curl  -H "Authorization: Bearer ...whatever" http://localhost:8080/api/testdata

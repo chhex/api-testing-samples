@@ -92,10 +92,6 @@ class TestController(val service: TestDataService) {
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
-    @Value("\${skipSecurity}")
-    val skipSecurity: Boolean = true
-
-
     override fun configure(http: HttpSecurity) {
 
         http.csrf().disable()
@@ -104,24 +100,24 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
             .anyRequest().authenticated()
 
         // Apply JWT
-        http.apply(JwtTokenFilterConfigurer(skipSecurity))
+        http.apply(JwtTokenFilterConfigurer())
     }
 
 
 
 }
 
-class JwtTokenFilterConfigurer(val skipSecurity : Boolean) :
+class JwtTokenFilterConfigurer() :
     SecurityConfigurerAdapter<DefaultSecurityFilterChain?, HttpSecurity>() {
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
-        val customFilter = JwtTokenFilter(skipSecurity)
+        val customFilter = JwtTokenFilter()
         http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter::class.java)
     }
 
 }
-class JwtTokenFilter(val skipSecurity: Boolean) : OncePerRequestFilter() {
+class JwtTokenFilter() : OncePerRequestFilter() {
 
     @Throws(ServletException::class, IOException::class)
     override fun doFilterInternal(
@@ -130,8 +126,8 @@ class JwtTokenFilter(val skipSecurity: Boolean) : OncePerRequestFilter() {
         filterChain: FilterChain
     ) {
         val bearerToken = httpServletRequest.getHeader("Authorization")
-
-        if (skipSecurity || bearerToken != null && bearerToken.startsWith("Bearer ")) {
+        println("Authorization Header Token : $bearerToken")
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
             var userDetails : UserDetails = User
                 .withUsername("testuser")//
                 .password("testpasswd")//

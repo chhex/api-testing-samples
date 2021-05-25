@@ -10,7 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
+import org.springframework.http.HttpRequest
 import org.springframework.http.ResponseEntity
+import org.springframework.http.client.ClientHttpRequestExecution
+import org.springframework.http.client.ClientHttpRequestInterceptor
+import java.util.*
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -20,6 +24,12 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     @BeforeAll
     fun setup() {
         println(">> Setup")
+        restTemplate.restTemplate.interceptors =
+            listOf(ClientHttpRequestInterceptor { request: HttpRequest, body: ByteArray?, execution: ClientHttpRequestExecution ->
+                request.headers
+                    .add("Authorization", "Bearer .... whatever ...")
+                execution.execute(request, body!!)
+            })
     }
 
     @Test

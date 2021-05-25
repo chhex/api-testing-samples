@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-curl -X DELETE http://localhost:8080/api/testdata/$1
+curl -X -H "Authorization: Bearer ...whatever" DELETE http://localhost:8080/api/testdata/$1
