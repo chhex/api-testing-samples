@@ -44,12 +44,10 @@ public class PersonManagerServiceImpl implements PersonManagerService {
     @Override
     public Address create(Address address) {
         // TODO (CHE, 26.5) : Add some Business Rules
-        AddressTable target = AddressTable.builder().build();
-        BeanUtils.copyProperties(address, target);
+        PersonManagerMapper mapper =  PersonManagerMapper.INSTANCE;
+        AddressTable target = mapper.map(address);
         AddressTable result = addressRepository.save(target);
-        final Address.AddressBuilder addressBuilder = Address.builder();
-        BeanUtils.copyProperties(result,addressBuilder);
-        return addressBuilder.build();
+        return mapper.map(result);
     }
 
     @Override
