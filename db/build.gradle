@@ -1,0 +1,22 @@
+plugins {
+	id "io.freefair.lombok" version "5.3.0"
+}
+
+description = 'Db service of the Sample Project for Apg Api Testing '
+jar {
+	archiveBaseName = 'api-testing-sample-db'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation group: 'com.google.guava', name: 'guava'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+		exclude module: "mockito-core"
+	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+	implementation 'org.projectlombok:lombok'
+}
+

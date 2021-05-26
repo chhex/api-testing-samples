@@ -1,0 +1,6 @@
+rootProject.name = 'api-testing-sample2'
+include 'api'
+include 'db'
+include 'service'
+include 'client'
+include 'server'

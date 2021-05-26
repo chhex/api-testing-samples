@@ -1,0 +1,18 @@
+description = 'Service module of the Sample Project for Apg Api Testing '
+jar {
+	archiveBaseName = 'api-testing-sample-server'
+}
+
+dependencies {
+	compile project(':api')
+	compile project(':db')
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+		exclude module: "mockito-core"
+	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+

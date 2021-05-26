@@ -1,0 +1,21 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.0.RELEASE'
+	id 'application'
+}
+
+description = 'Server module of the Sample Project for Apg Api Testing '
+jar {
+	archiveBaseName = 'api-testing-sample-server'
+}
+
+dependencies {
+	implementation project(':service')
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testImplementation("com.intuit.karate:karate-apache:0.9.6")
+	testImplementation("com.intuit.karate:karate-junit5:0.9.6")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+
