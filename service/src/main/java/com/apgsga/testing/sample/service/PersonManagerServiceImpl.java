@@ -1,12 +1,7 @@
 package com.apgsga.testing.sample.service;
 
 import com.apgsga.testing.sample.api.*;
-import com.apgsga.testing.sample.api.Address;
-import com.apgsga.testing.sample.api.Gender;
-import com.apgsga.testing.sample.api.Hobby;
-import com.apgsga.testing.sample.api.Person;
 import com.apgsga.testing.sample.db.*;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
