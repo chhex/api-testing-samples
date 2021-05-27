@@ -7,7 +7,7 @@ import lombok.Value;
 
 @JsonDeserialize(builder = Address.AddressBuilder.class)
 @Value
-@Builder(setterPrefix = "set")
+@Builder
 public class Address {
 
     Integer id;

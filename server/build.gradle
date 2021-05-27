@@ -2,16 +2,22 @@ plugins {
 	id 'org.springframework.boot' version '2.1.0.RELEASE'
 	id 'application'
 }
-
 description = 'Server module of the Sample Project for Apg Api Testing '
-jar {
-	archiveBaseName = 'api-testing-sample-server'
-}
 
 dependencies {
-	implementation project(':service')
+	implementation project(':api-testing-sample-service')
+	implementation project(':api-testing-sample-api')
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation group: 'com.google.guava', name: 'guava'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+		exclude module: "mockito-core"
+	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testImplementation("com.intuit.karate:karate-apache:0.9.6")
@@ -19,3 +25,11 @@ dependencies {
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact bootJar
+		}
+	}
+}
+project.tasks.publish.dependsOn bootJar

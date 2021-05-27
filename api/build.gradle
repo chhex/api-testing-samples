@@ -3,9 +3,7 @@ plugins {
 }
 
 description = 'API of the Sample Project for Apg Api Testing '
-jar {
-	archiveBaseName = 'api-testing-sample-api'
-}
+
 dependencies {
 	implementation group: 'com.google.guava', name: 'guava'
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations'

@@ -4,3 +4,14 @@ include 'db'
 include 'service'
 include 'client'
 include 'server'
+include 'utils'
+include 'jbang-testscenarios'
+
+// Change subproject names
+
+project(":api").name = "api-testing-sample-api"
+project(":db").name = "api-testing-sample-db"
+project(":service").name = "api-testing-sample-service"
+project(":client").name = "api-testing-sample-client"
+project(":server").name = "api-testing-sample-server"
+project(":utils").name = "api-testing-sample-utils"

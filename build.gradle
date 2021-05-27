@@ -6,13 +6,18 @@ project.ext {
     mavenLocalRepo = repositories.mavenLocal().url
 }
 
+
+allprojects  {
+    apply plugin: 'maven'
+    group = publishGroup
+    version  = publishVersion
+}
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
     apply plugin: "io.spring.dependency-management"
 
-    group = publishGroup  /* From gradle.properties */
-    version = publishVersion /* From gradle.properties */
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
     tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
@@ -29,12 +34,6 @@ subprojects {
         }
     }
 
-
-    task sourcesJar ( type: Jar) {
-        classifier 'sources'
-        from sourceSets.main.allJava
-    }
-
     dependencyManagement {
         imports {
             mavenBom 'org.springframework.boot:spring-boot-dependencies:2.3.0.RELEASE'
@@ -49,8 +48,16 @@ subprojects {
     publishing {
         publications {
             mavenJava(MavenPublication) {
+                version publishVersion
                 from components.java
-                artifact sourcesJar
+                versionMapping {
+                    usage('java-api') {
+                        fromResolutionOf('runtimeClasspath')
+                    }
+                    usage('java-runtime') {
+                        fromResolutionResult()
+                    }
+                }
             }
         }
         def repoTarget = version.endsWith("SNAPSHOT") ? "${mavenSnapshotsRepoName}" : "${mavenReleasesRepoName}"

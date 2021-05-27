@@ -1,16 +1,32 @@
 plugins {
-	id "io.freefair.lombok" version "5.3.0"
+	id "com.github.johnrengelman.shadow" version "6.0.0"
 }
 
 description = 'Client of the Sample Project for Apg Api Testing '
+
 jar {
-	archiveBaseName = 'api-testing-sample-client'
+	enabled = false
+	dependsOn(shadowJar { classifier = null })
 }
+
+configurations {
+	compileOnly
+}
+
+shadowJar {
+	dependencies {
+		exclude(dependency {
+			it.moduleGroup.contains("lombok")
+		})
+	}
+}
+
 dependencies {
-	implementation project(':api')
-	implementation project(':service')
+	implementation project(':api-testing-sample-api')
+	implementation project(':api-testing-sample-service')
+	implementation 'org.springframework:spring-web'
 	implementation group: 'com.google.guava', name: 'guava'
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations'
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
-	implementation 'org.projectlombok:lombok:1.16.18'
+	compileOnly 'org.projectlombok:lombok:1.16.18'
 }

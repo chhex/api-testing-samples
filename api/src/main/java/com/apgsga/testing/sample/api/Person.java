@@ -12,11 +12,12 @@ import java.util.Date;
 @Builder
 public class Person {
 
-    Long id;
+    Integer id;
     String firstName;
-    String giveName;
+    String secondName;
     Date birthDay;
     Gender gender;
+    Address address;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class PersonBuilder {}

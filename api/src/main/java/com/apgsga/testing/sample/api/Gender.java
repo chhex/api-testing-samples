@@ -9,7 +9,7 @@ import lombok.Value;
 @Value
 @Builder
 public class Gender {
-    Long id;
+    Integer id;
     String designation;
     String description;
 

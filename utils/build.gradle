@@ -1,0 +1,9 @@
+description = 'Util module of the Sample Project for Apg Api Testing '
+
+dependencies {
+	compile project(':api-testing-sample-api')
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+}
+

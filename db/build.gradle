@@ -3,9 +3,6 @@ plugins {
 }
 
 description = 'Db service of the Sample Project for Apg Api Testing '
-jar {
-	archiveBaseName = 'api-testing-sample-db'
-}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
@@ -17,6 +14,6 @@ dependencies {
 	}
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-	implementation 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
 }
 

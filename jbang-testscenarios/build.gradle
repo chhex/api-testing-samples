@@ -1,0 +1,17 @@
+plugins {
+	id 'dev.jbang' version '0.2.0'
+}
+description = 'JBang Testscenario Scripts'
+
+dependencies {
+	implementation project(':api-testing-sample-api')
+	implementation project(':api-testing-sample-client')
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'scripts'
+		}
+	}
+}

@@ -9,9 +9,8 @@ import lombok.Value;
 @Value
 @Builder
 public class Hobby {
-    Long id;
+    Integer id;
     String shortName;
-    String name;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class HobbyBuilder {}
