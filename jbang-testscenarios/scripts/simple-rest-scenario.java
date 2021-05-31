@@ -1,12 +1,15 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS local=file:///Users/chhex/maven/testrepo
-//DEPS com.apgsga.testing.sample:api-testing-sample-client:0.3.6-SNAPSHOT
+//DEPS com.apgsga.testing.sample:api-testing-sample-client:0.5.1-SNAPSHOT
 //DEPS org.junit.jupiter:junit-jupiter-api:5.5.2
 //FILES logback.xml ./logback.xml
 
-import com.apgsga.testing.sample.client.rest.RestClient;
+
+import com.apgsga.testing.sample.api.PersonManagerService;
+import com.apgsga.testing.sample.client.ClientBuilder;
 import com.apgsga.testing.sample.api.Address;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -14,13 +17,12 @@ import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.Assertions;
 
 
-class simpletestscenario {
-
+class SimpleTestScenario {
 
     public static void main(String[] args) {
         Logger LOGGER = LoggerFactory.getLogger("Simple Testscenario");
-        LOGGER.info("Starting Test Scenario");
-        RestClient client = new RestClient(args.length == 0 ? "http://localhost:8080" : args[0]);
+        LOGGER.info("Starting Test Scenario with : " +  Arrays.toString(args));
+        PersonManagerService client = ClientBuilder.build(args);
         LOGGER.info("***Setting up Test Scenario ");
         // Test Scenario Setup Code
         client.deleteAll();

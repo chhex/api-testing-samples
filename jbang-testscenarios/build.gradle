@@ -6,6 +6,7 @@ description = 'JBang Testscenario Scripts'
 dependencies {
 	implementation project(':api-testing-sample-api')
 	implementation project(':api-testing-sample-client')
+	compile project(':api-testing-sample-db')
 	implementation("org.slf4j:slf4j-api")
 	implementation("org.junit.jupiter:junit-jupiter-api")
 

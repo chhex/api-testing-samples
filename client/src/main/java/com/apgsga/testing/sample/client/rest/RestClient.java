@@ -3,26 +3,24 @@ package com.apgsga.testing.sample.client.rest;
 import com.apgsga.testing.sample.api.*;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
 
+@Component
+@Profile("rest")
 public class RestClient implements PersonManagerService {
 
+    @Value("${baseUrl:http://localhost:8080}")
     String baseUrl;
+    @Autowired
     RestTemplate restTemplate;
-
-    public RestClient(String baseUrl) {
-        this.baseUrl = baseUrl;
-        this.restTemplate = new RestTemplate();
-    }
-
-    public RestClient(String baseUrl, RestTemplate restTemplate) {
-        this.baseUrl = baseUrl;
-        this.restTemplate = restTemplate;
-    }
 
     @Override
     public void deleteAll() {
