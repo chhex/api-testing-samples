@@ -39,8 +39,6 @@ public class ClientBuilder {
                 .run(String.format("--spring.profiles.active=%s",profile), String.format("--baseUrl=%s",baseUrl));
         return context.getBean(PersonManagerService.class);
     }
-
-
     @Profile("rest")
     @ComponentScan(basePackages = { "com.apgsga.testing.sample.client.rest"})
     class RestConfiguration {

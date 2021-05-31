@@ -1,5 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//REPOS local=file:///Users/chhex/maven/testrepo
+//REPOS central=https://artifactory4t4apgsga.jfrog.io/artifactory/repo/
 //DEPS com.apgsga.testing.sample:api-testing-sample-client:0.5.1-SNAPSHOT
 //DEPS org.junit.jupiter:junit-jupiter-api:5.5.2
 //FILES logback.xml ./logback.xml
