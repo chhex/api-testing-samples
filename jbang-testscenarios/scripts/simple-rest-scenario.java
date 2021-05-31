@@ -20,7 +20,7 @@ class simpletestscenario {
     public static void main(String[] args) {
         Logger LOGGER = LoggerFactory.getLogger("Simple Testscenario");
         LOGGER.info("Starting Test Scenario");
-        RestClient client = new RestClient("http://localhost:8080");
+        RestClient client = new RestClient(args.length == 0 ? "http://localhost:8080" : args[0]);
         LOGGER.info("***Setting up Test Scenario ");
         // Test Scenario Setup Code
         client.deleteAll();
