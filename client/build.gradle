@@ -16,11 +16,10 @@ configurations {
 shadowJar {
 	dependencies {
 		exclude(dependency {
-			it.moduleGroup.contains("lombok")
+			it.moduleGroup.contains("lombok") || it.moduleGroup.contains("logback")
 		})
 	}
 }
-
 dependencies {
 	implementation project(':api-testing-sample-api')
 	implementation project(':api-testing-sample-service')

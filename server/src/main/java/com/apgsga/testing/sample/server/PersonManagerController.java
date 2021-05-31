@@ -65,8 +65,9 @@ public class PersonManagerController implements PersonManagerService {
     }
 
     @Override
-    public Person findById(Integer personId) {
-        return null;
+    @GetMapping(path = "/person/{personId}")
+    public Person findById(@PathVariable Integer personId) {
+        return service.findById(personId);
     }
 
     @Override

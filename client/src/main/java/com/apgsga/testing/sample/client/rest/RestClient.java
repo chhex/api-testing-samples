@@ -2,10 +2,12 @@ package com.apgsga.testing.sample.client.rest;
 
 import com.apgsga.testing.sample.api.*;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 public class RestClient implements PersonManagerService {
 
@@ -75,7 +77,10 @@ public class RestClient implements PersonManagerService {
 
     @Override
     public Person findById(Integer personId) {
-        return null;
+        Map<String, Integer> params = Maps.newHashMap();
+        params.put("personId", personId);
+        ResponseEntity<Person> addressResponseEntity = restTemplate.getForEntity(String.format( "%s/api/pm/person/{personId}",baseUrl), Person.class,params);
+        return addressResponseEntity.getBody();
     }
 
     @Override
