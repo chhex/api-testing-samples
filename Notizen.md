@@ -1,10 +1,11 @@
 # Api Testing in Apg
 
-TODO (che, 27.5) : Update
+Ein labor projekt mit typischen, wenn auch simplen Rest API Verwendungsszenarien
 
-## Integrations Testing Apg
+Das Projekt wird im Zuge von ersten Iterationen fur die Evalution und
+Definition einer API Testing Toolchain verwendet
 
-Nicht abschließend / subjektiv
+## Integrations Testing Apg Ist
 
 ### Ansätze Testdaten Bereitstellung
 - (a) : außerhalb der Tests gemanagte und vordefinierte Testdaten für
@@ -14,7 +15,7 @@ Nicht abschließend / subjektiv
   Light)
 - (d) Kombination von a) , b), c)
 
-### Tests "End Points" Integrations Tests
+### Test "End Points" der Integrations Tests
 
 - Db: F- und V- Schicht (View und Stored Procedures)
 - Spring Service Komponenten: @Service - , @Component- Annotationen
@@ -27,7 +28,7 @@ Nicht abschließend / subjektiv
 - Manuell via IT21 UI und PlSql Developer
 - Manuell via PlSql Developer
 - Windows Bat Scripts (sqlPlus)
-- Diverses Java Tooling , siehe unten
+- Diverses Java Tooling, siehe unten
 - Jenkins Builds mit Java Tests
 - Jenkins Pipeline mit Java Tests
 
@@ -45,13 +46,17 @@ Nicht abschließend / subjektiv
 - [Spock](https://spockframework.org) : Groovy basiertes Testframework,
   intuitiv , addressiert Adressiert Junit 4  an below Limitations
 
-### Automatisiertes Testen von IT21 Funktionalitaet
+### Automatisiertes Testen von IT21 Funktionalität
 
-TODO Ansätze / Ist Beschreiben / Analysieren Pro / Cons
+Die folgenden applications Bereiche werden mit automatisieren
+funktionalen Integrationstests getestet:
 
-PD2, Digiflex? , Faktura, weitere
-
-als Input zur Tool Evalution und des weiteres Vorgehens
+- PVA-Abgabenberechung (PLSQL)
+- PM-Bruttopreisermittlung (PLSQL)
+- Fakturierungstest (PLSQL)
+- Verkaufspapiere (Birt, Java , Xtend)
+- Preisermittlung (PLSQL)
+- PZ-UP (PLSQL, Testdaten via Excel)
 
 ## Scope des Projektes
 
@@ -72,26 +77,59 @@ Das Projekt soll jedoch die Erwartungen, respektive die Voraussetzungen
 aus Sicht des Testens an die Restschnittstellen der Java Service
 Projekte definieren.
 
-## [Motivation dieses Test/Sample Projektes](https://github.com/chhex/api-testing-samples2.git)
+## Test Projekt
+
+### Motivation
 
 - Konzentration / Reduktion / Vereinfachung auf die das Wesentliche
 - Was ist ein Rest API?
+- Building Blocks / Schichten
 - Erste Tool Evaluation / Eindrücke
-- Das Test Projekt ist einfach erweiterbar - um gegebenen Falls neue
-  Anforderungen zu adressieren z. B. It21 Db statt H2
+- Das Testprojekt ist einfach erweiterbar, auch um gegebenen Falls neue
+  Anforderungen zu adressieren
 
-Das Projekt zeigt die verschiedenen Schichten in einem File:
-[SimpleApplication.kt](.)
+### Implementation
 
-- [Spring Boot Application](.)
-- [Rest Controller](.)
-- [Service Schicht](.)
-- [Datenbank Zugriffs Schicht](.)
-- [Datenbank Objekt](.)
-- [Service Komponente](.)
+Das Projekt ist als Multi Module Projekt aufgesetzt:
 
-Aktuell wird die in Memory Db H2 verwendet. Es kann allenfalls die IT21
-Db, das Schema Testutils verwendet werden.
+1. API Schicht (siehe Subprojekt [api](api))
+2. Service Schicht (siehe Subjekt [service](service))
+3. Db Schicht (siehe Subjekt [db](db))
+4. Spring Boot Server mit einem Rest Controller (siehe Subjekt
+   [server](server))
+5. Spring Boot Client (siehe Subjekt [client](client))
+
+Die [API Schicht](api) export an einem dem Service Interface
+[PersonManagerService](api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
+Value Object wie sie von einem Client verwendet werden.
+
+Das Model der Value Object ist das folgende
+
+![valueobjects.png](api/src/main/doc/valueobjects.png)
+
+Das Api hat 4 Implementation:
+
+1. [PersonManagerServiceImpl](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
+   der [Service Sicht](service)
+2. Der Restcontroller
+   [PersonManagerController](server/src/main/java/com/apgsga/testing/sample/server/PersonManagerController.java)
+   in der [Server Schicht](server)
+3. Ein Spring Resttemplate Wrapper
+   [RestClient](client/src/main/java/com/apgsga/testing/sample/client/rest/RestClient.java)
+   in der [Client Schicht](client)
+
+Zusätzlich hat die [Client Schicht](client) ein Spring Boot basierter
+[Client Builder](client/src/main/java/com/apgsga/testing/sample/client/ClientBuilder.java),
+welcher abhängig vom aktiven spring profile "rest" oder "direct" den
+[RestClient](client/src/main/java/com/apgsga/testing/sample/client/rest/RestClient.java)
+oder die direkte Service
+[Service Implementation](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
+bootstrapped. Dh grundsätzlich kann der Client mit einer Rest Client
+Implementation oder der direkten Service Implementation ausgeführt
+werden.
+
+Die Implementation der [Datenbank Sicht](db) basiert aktuell auf dem der
+In Memory Db H2.
 
 Das Projekt zeigt unterschiedliche Testansätze respektive Methoden
 Rest APIäs aufzurufen:

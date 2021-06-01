@@ -1,9 +1,6 @@
 # api-testing-samples2
-Small lab project with typical - albeit simple - Rest API Usage
-Scenarios
 
-This project is used in a first Iteration of a API Testing Tooling and
-Approach Evaluation.
+
 
 TODO
 
