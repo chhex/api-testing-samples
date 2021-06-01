@@ -24,7 +24,7 @@ puts 'done.'
 
 # Create Address
 puts 'Testcase : Creating Address'
-json_test_data = JSON.generate({ "streetName" => "Hackersdum",  "streetNumber" =>  "007", "postalCode" => "8306"  })
+json_test_data = JSON.generate({ 'streetName' => 'Hackersdum',  'streetNumber' =>  '007', 'postalCode' => '8306'  })
 puts json_test_data
 result = RestClient.post "#{opts[:baseUrl]}/api/pm/address", json_test_data,
                          { content_type: :json, accept: :json, Authorization: 'Bearer ...'}
@@ -32,7 +32,7 @@ puts result
 
 # Create Address
 puts 'Testcase : Creating another Address'
-json_test_data = JSON.generate({ "streetName" => "Wyacher",  "streetNumber" =>  "1", "postalCode" => "8400"  })
+json_test_data = JSON.generate({ 'streetName' => 'Wyacher',  'streetNumber' =>  '1', 'postalCode' => '8400'  })
 puts json_test_data
 result = RestClient.post "#{opts[:baseUrl]}/api/pm/address", json_test_data,
                          { content_type: :json, accept: :json, Authorization: 'Bearer ...'}

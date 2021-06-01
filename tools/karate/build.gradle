@@ -1,0 +1,29 @@
+plugins {
+}
+description = 'Karate Test Scripts'
+
+dependencies {
+	testImplementation project(':api-testing-sample-api')
+	testImplementation project(':api-testing-sample-db')
+	testImplementation project(':api-testing-sample-service')
+	testImplementation project(':api-testing-sample-server').sourceSets.main.output
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+		exclude module: "mockito-core"
+	}
+	testImplementation("org.springframework.boot:spring-boot-starter-web")
+	testImplementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testImplementation("com.intuit.karate:karate-apache:0.9.6")
+	testImplementation("com.intuit.karate:karate-junit5:0.9.6")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+
+
+test {
+	useJUnitPlatform()
+	systemProperty "karate.options", System.properties.getProperty("karate.options")
+	systemProperty "karate.env", System.properties.getProperty("karate.env")
+	outputs.upToDateWhen { false }
+	testLogging.showStandardStreams = true
+}
