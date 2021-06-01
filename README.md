@@ -219,6 +219,8 @@ zum Tools festgehalten sind.
 3. [JBang](tools/jbang/README.md)
 4. [Karate DSL](tools/karate/README.md)
 
+(3) und (4) sind als auch als automatisierte Java Tests im Build
+integriert.
 
 ## Offene Punkte
 
