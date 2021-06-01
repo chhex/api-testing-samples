@@ -201,15 +201,15 @@ Die folgenden Tools sollen gemäss Beschluss vom 25.5 näher untersucht
 werden:
 
 1. [Postman](https://www.postman.com)
-2. [Jbang](https://github.com/jbangdev/jbang)
+2. [JBang](https://github.com/jbangdev/jbang)
 3. [Karate DSL](https://github.com/intuit/karate)
 
 Im Kontext des Projektes wird möglichst die Standalone Verwendung, dh
-eine Verwendung ohne IDE UND die Integration in ein automatisierte Java
-basiertes Testen, dh von Maven resp Gradle Builds ausgeführten Tests
-untersucht.
+eine Verwendung ohne IDE UND die Integration der Tools in ein
+automatisiertes Java basiertes Testen, dh von Maven resp Gradle Builds
+ausgeführten Tests, untersucht.
 
-Diese tools verwenden in "dedicated" Sub Folder von [tools](tools)
+Diese Tools sind in einem "dedicated" Sub Folder von [tools](tools)
 untersucht und evaluatiert mit einem eigenen README, in welchem auch die
 Preconditions fur das Standalone ausführen der Tools und die Findings
 zum Tools festgehalten sind.
@@ -222,12 +222,16 @@ zum Tools festgehalten sind.
 
 ## Offene Punkte
 
+- [ ] Postman wurde überhaupt noch nicht untersucht
+- [ ] Service API ist abschliessend implementiert, der Restcontroller
+      und die Restclient Implementation nur rudimentär.
+      Vervollständigen und die Test Scenario ausweiten
 - [ ] Security resp Autorisierung von Rest API's, wie?: allenfalls in
-      Sample Projekt einbauen
-- [ ] Ist der Scope zu eng? Einige dieser Tools kommen von Performance- / Loadtesting
-- [ ] Entwicklung eigenes Test DSL - adaptiert an Apg Anforderungen :
-      Option?
-- [ ] Test Setup via Rest API oder direkt via JDBC
-- [ ] Verbesserung / Vereinheitlichung Java basierter Tests
+      Sample Projekt einbauen, muss vom initialen Testprojekt
+      nachgezogen werden, als "Mock" Implementation, dh auf Http Header
+      Ebene relevant
+- [ ] Test Setup via Rest API oder direkt via JDBC?
+- [ ] Verbesserung / Vereinheitlichung Java basierter Tests, Scope?
 - [ ] Testen via Rest API vs direktes Testen auf der Datenbank
       Schnittstelle, allenfalls mit some Java/ Script glue darum herum
+      (JBang Scenario)
