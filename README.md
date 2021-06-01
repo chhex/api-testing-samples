@@ -792,9 +792,9 @@ bootstrapped. Dh grundsätzlich kann der Client mit einer Rest Client
 Implementation oder der direkten Service Implementation ausgeführt
 werden.
 
-Die Implementation der [Datenbank Sicht](db) basiert aktuell auf dem der
-In Memory Db H2. Die ![Daten Objekte](db/src/main/doc/db.png) mappen 1:1
-zu dem [Schema](db/src/main/resources/sql/schema.sql), welches bei
+Die Implementation der [Datenbank Schicht](db) basiert aktuell auf dem
+der [In Memory Db H2](https://www.h2database.com/html/main.html) . Die ![Daten Objekte](db/src/main/doc/db.png) mappen
+1:1 zu dem [Schema](db/src/main/resources/sql/schema.sql), welches bei
 Start-up von Spring Data Jdbc kreiert werden.
 
 Die
