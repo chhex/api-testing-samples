@@ -68,11 +68,11 @@ Generell wird das File mit JBang ausgeführt, siehe das Script
   remote publiziert wird. Bei Bedarf allenfalls ent – kommentieren und
   updaten
 
-Dh. Es muss nicht mit javac gebaut werden und als Jar publiziert und
+Dh. Der Code muss nicht mit javac gebaut werden und als Jar publiziert und
 deployt werden. Das Bauen und Packaging von Java Programmen ist mit
 JBang nicht mehr notwendig.
 
-Das konkrete script hat zwei Parameter:
+Das konkrete script hier hat zwei Parameter:
 
 - $1 : Modus: direct / rest
 - $2 : baseUrl , zb http://localhost:8080
@@ -97,8 +97,6 @@ oder z. B.
 
 `./run.sh rest http://localhost:8080`
 
-
-Auf Windows analog mit Powershell oder cmd.exe
 
 ### Java Build Integration
 
