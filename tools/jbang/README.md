@@ -38,7 +38,7 @@ wobei
   [build.gradle](../../client/build.gradle), dh es beinhaltet alle
   Dependencies, welches der Client braucht.
 - (c) Es können zusätzliche Files für den Klassenpfad definiert werden
-- (d) shebang, damit das script auch direkt ausführt werden kann.
+- (d) she-bang, damit das script auch direkt ausführt werden kann.
   Bemerkung: Funktioniert bei mir nicht
 
 Für weitere Dokumentation zu JBang, siehe den
