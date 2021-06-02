@@ -112,4 +112,5 @@ Getestet mit Intellij und
 - [ ] Das packaging der Feature File Scripts plus Konfiguration. Als Git
       Repository, höchstwahrscheinlich. To be discussed.
 - [ ] Debuggen
+- [ ] Option: Das Testsceanrio als JBang Script mit dem Java API schreiben
 - [ ] Mit Eclipse und auf Windows Testen
