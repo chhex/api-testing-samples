@@ -53,7 +53,7 @@ in reinem Java geschrieben.
 ### Ausführung
 
 Generell wird das File mit JBang ausgeführt, siehe das Script
-[run.sh](run.sh):
+[run.sh](run.sh)
 
 ![run.png](screenshots/run.png)
 
@@ -64,6 +64,10 @@ Generell wird das File mit JBang ausgeführt, siehe das Script
   für die Entwicklung mit SNAPSHOT Dependencies wichtig, wenn nicht
   remote publiziert wird. Bei Bedarf allenfalls ent – kommentieren und
   updaten
+
+Dh. Es muss nicht mit javac gebaut werden und als Jar publiziert und
+deployt werden. Das Bauen und Packaging von Java Programmen ist mit
+JBang nicht mehr notwendig.
 
 Das konkrete script hat zwei Parameter:
 
