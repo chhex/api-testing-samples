@@ -16,8 +16,8 @@ EIn Feature File kann 1 bis n Testszenarios beinhalten. Jedes
 Testszenario kann enthält n Tests. Die Tests werden in der Karate DSL
 Notation festgehalten. Funktionale Logik wird mit JavaScript
 programmiert, siehe auch ein reines funktionales Script:
-[some-reuseable.feature](src/test/resources/some-reuseable.feature).  
-Dieses script wird auch im
+[some-reuseable.feature](src/test/resources/some-reuseable.feature). Feature scripts koennen auch wiederverwendet werden, so   
+wird dieses script auch im
 [simple-scenario.feature](src/test/resources/simple-scenario.feature)
 beispielhaft aufgerufen und gelesen.
 
