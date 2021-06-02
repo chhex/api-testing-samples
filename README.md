@@ -158,6 +158,11 @@ Tests, da diese der Gegenstand der Toolchain Evaluation ist, siehe auch
 die Sub-directories von [tools](tools) und die dort implementiert
 werden.
 
+In [utils](utils) ist [Value Object zu Json File
+Converter fur Address](utils/src/main/java/com/apgsga/testing/utils/json/CreateAddressJson.java)
+implementiert. Nützlich für den, dem die JSON Notation nicht gerade
+geläufig ist oder schreib faul ist.
+
 ### Preconditions
 
 - Java Version >= 8 installiert
