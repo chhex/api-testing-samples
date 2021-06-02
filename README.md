@@ -252,7 +252,7 @@ integriert.
      [PersonManagerController](server/src/main/java/com/apgsga/testing/sample/server/PersonManagerController.java)
 - [x] Client mit konfigurierbarem Restful vs Direct Modus mit den 3
      Methoden
-- [x] Karate und JBang Test Scenarien der 3 Methoden Standalone und als
+- [x] Karate und JBang Test Szenarien der 3 Methoden Standalone und als
       Java Tests
 
 ### Offen
