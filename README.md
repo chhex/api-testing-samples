@@ -222,16 +222,39 @@ zum Tools festgehalten sind.
 (3) und (4) sind als auch als automatisierte Java Tests im Build
 integriert.
 
-## Offene Punkte
+## Stand
 
-- [ ] Postman wurde überhaupt noch nicht untersucht
-- [ ] Service API ist abschliessend implementiert, der Restcontroller
-      und die Restclient Implementation nur rudimentär.
-      Vervollständigen und die Test Scenario ausweiten
-- [ ] Security resp Autorisierung von Rest API's, wie?: allenfalls in
-      Sample Projekt einbauen, muss vom initialen Testprojekt
-      nachgezogen werden, als "Mock" Implementation, dh auf Http Header
-      Ebene relevant
+### Completed
+
+- [x] Api siehe
+     [PersonManagerService](api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
+- [x] Db und Service Schicht mit Junit5, SpringBoot Tests
+- [x] Server ist mit Rest Controller lauffähig
+- [x] Rest Controller mit 3
+     [Address.java](api/src/main/java/com/apgsga/testing/sample/api/Address.java)
+     Methoden implementiert, siehe
+     [PersonManagerController](server/src/main/java/com/apgsga/testing/sample/server/PersonManagerController.java)
+- [x] Client mit konfigurierbarem Restful vs Direct Modus mit den 3
+     Methoden
+- [x] Karate und JBang Test Scenarien der 3 Methoden Standalone und als
+      Java Tests
+
+### Offen
+
+- [ ] README's vervollständigen (2 PS)
+- [ ] Security muss vom initialen Testprojekt nachgezogen werden, als
+      "Mock" Implementation in der Server Schicht, dh auf Http Header
+      Ebene relevant fuer die implementieren Testscenarien (2 PS)
+- [ ] Restcontroller: das API vervollständigen (2 PS)
+- [ ] Client: das Rest API vervollständigen (2 PS)
+- [ ] Karate und JBang Testszenarios vervollständigen (2 PS)
+- [ ] Postman wurde überhaupt noch nicht untersucht, analog zu Karate
+      und JBang (1 - 2 PT)
+
+Also ca noch ca 3 PT verbleibender Aufwand
+
+## Offene Fragen
+
 - [ ] Test Setup via Rest API oder direkt via JDBC?
 - [ ] Verbesserung / Vereinheitlichung Java basierter Tests, Scope?
 - [ ] Testen via Rest API vs direktes Testen auf der Datenbank
