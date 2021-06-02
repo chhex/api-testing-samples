@@ -178,6 +178,31 @@ Converter fur Address](utils/src/main/java/com/apgsga/testing/utils/json/CreateA
 implementiert. Nützlich für den, dem die JSON Notation nicht gerade
 geläufig ist oder schreib faul ist.
 
+### Bauen und Testen des Projektes
+
+Das Projekt wird im Root directory mit
+
+`./gradlew clean build shadowJar publishToMavenLocal publish --info`
+
+compiliert, getest und die Artefakte publiziert.
+
+Mit
+
+`./gradlew bootRun --info`
+
+wird der Server gestartet.
+
+Mit
+
+`./gradlew :tools:karate:test --info`
+
+respective
+
+`./gradlew :tools:jbang:test --info`
+
+werden die Karate und JBang einzeln als Java Build Test ausgeführt.
+
+
 ### Preconditions
 
 - [Git](https://git-scm.com/downloads)
