@@ -8,5 +8,7 @@
 - Laufender Spring Boot Server `./gradlew bootRun --info` im Projekt
   Root Directory
 
+## Test Script
 
+Siehe [testscenario.rb](testscenario.rb)
 
