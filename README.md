@@ -266,6 +266,8 @@ integriert.
 - [ ] Karate und JBang Testszenarios vervollständigen (2 PS)
 - [ ] Postman wurde überhaupt noch nicht untersucht, analog zu Karate
       und JBang (1 - 2 PT)
+- [ ] Optional: zusätzlich (redundant) Maven pom.xml's und scripts (4
+      PS)
 
 Also ca noch ca 3 PT verbleibender Aufwand
 
