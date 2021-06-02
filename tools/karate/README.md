@@ -107,7 +107,7 @@ Getestet mit Intellij und
 [Visual Code Open Source](https://github.com/microsoft/vscode) auf Macos
 => io.
 
-## Offener Punkt
+## Offene Punkte
 
 - [ ] Das packaging der Feature File Scripts plus Konfiguration. Als Git
       Repository, höchstwahrscheinlich. To be discussed.
