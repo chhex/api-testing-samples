@@ -91,7 +91,8 @@ Projekte mit definieren.
 
 ### Implementation
 
-Das Projekt ist als Multi Module Projekt aufgesetzt:
+Das Projekt ist als Multi Module Projekt aufgesetzt. Im Folgenden
+aufgeführt mit einem Link zum entsprechenden subdirectory:
 
 1. API Schicht: [api](api)
 2. Service Schicht: [service](service)
@@ -137,20 +138,24 @@ Client mit einer Rest Client Implementation oder der direkten Service
 Implementation ausgeführt werden.
 
 Die Implementation der [Datenbank Schicht](db) basiert aktuell auf dem
-der In Memory Db H2. Die Daten Objekte
+der [In Memory Db H2](https://www.h2database.com/html/main.html). Die
+Daten Objekte
 
 ![Daten Objekte](db/src/main/doc/db.png)
 
 mappen 1:1 zum [Schema](db/src/main/resources/sql/schema.sql), welches
-bei Start-up von Spring Data Jdbc kreiert werden. Als
-Implementations-Schnittstelle wird
+bei Start-up von Spring Data Jdbc kreiert werden, siehe auch als
+Beispiel
+[AddressTable.java](db/src/main/java/com/apgsga/testing/sample/db/AddressTable.java)
+Als Implementations-Schnittstelle wird
 [Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc)
 
 Die
 [Service Schicht](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
-is der Mediator zwischen API Objekten und der Datenbank Schicht.
+is der Mediator zwischen API Objekten und der Datenbank Schicht / Logik.
 Grundsätzlich werden in unterschiedlichen Verwendungsszenarien die Daten
-dieser beiden Schicht immer wieder gleich gemappt, deshalb ist das
+dieser beiden Schicht immer wieder gleich gemappt mit der zusätzlichen
+Schwierigkeit das die API Objekte Value Objects sind. Deshalb ist das
 Mapping zentralisiert im
 [PersonManagerMapper](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerMapper.java)
 mit [Mapstruct](https://mapstruct.org)
