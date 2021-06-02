@@ -158,6 +158,10 @@ Tests, da diese der Gegenstand der Toolchain Evaluation ist, siehe auch
 die Sub-directories von [tools](tools) und die dort implementiert
 werden.
 
+### Preconditions
+
+- Java Version >= 8 installiert
+- IDE, welches Gradle Projekte importieren kann
 
 ## Tool Evaluation
 
@@ -191,20 +195,20 @@ https://medium.com/@alicealdaine/top-10-api-testing-tools-rest-soap-services-539
 
 Was beim ersten Durchblick auffällt: Es gibt Tools, wie zb Swagger,
 welches den ganzen Life-cycle abdecken , dh auch die Spezifikation und
-das Entwickeln von Rest API's.
+das Entwickeln von Rest API’s.
 
-Im Weiteren gibt es solche, welche ein script bares Rest Client DSL
+Im Weiteren gibt es solche, welche ein scriptbares Rest Client DSL
 anbieten. Andere welche ein UI basiertes interaktives Zusammenstellen
 von Rest Aufrufen erlauben.
 
-Alle Tools , ausser [Jbang](https://github.com/jbangdev/jbang) setzen
-auf dem Http Protokoll auf.
+Alle Tools, ausser [JBang](https://github.com/jbangdev/jbang) setzen auf
+dem Http Protokoll auf.
 
 [JBang](https://github.com/jbangdev/jbang) ist kein Test Framework, aber
-erlaubt ein scripting ähnliches Entwicklererlebnis fur die Java
+erlaubt ein scripting ähnliches Entwicklererlebnis für die Java
 Entwicklung. In diesem Scenario wird nicht direkt auf der HTTP Protokoll
-Ebene, sondern auf einem JAva basierten Client API fur die Tests
-aufgesetzt.
+Ebene, sondern auf einem Java basierten Client API fur die Tests
+aufgesetzt. Die Tests werden in Java implementiert.
 
 
 ### Aktuelle Tool Selektion
@@ -256,7 +260,7 @@ integriert.
 - [ ] README's vervollständigen (2 PS)
 - [ ] Security muss vom initialen Testprojekt nachgezogen werden, als
       "Mock" Implementation in der Server Schicht, dh auf Http Header
-      Ebene relevant fuer die implementieren Testscenarien (2 PS)
+      Ebene relevant für die implementieren Testszenarien (2 PS)
 - [ ] Restcontroller: das API vervollständigen (2 PS)
 - [ ] Client: das Rest API vervollständigen (2 PS)
 - [ ] Karate und JBang Testszenarios vervollständigen (2 PS)
