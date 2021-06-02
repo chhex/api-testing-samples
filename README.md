@@ -242,10 +242,9 @@ dem Http Protokoll auf.
 
 [JBang](https://github.com/jbangdev/jbang) ist kein Test Framework, aber
 erlaubt ein scripting ähnliches Entwicklererlebnis für die Java
-Entwicklung. In diesem Scenario wird nicht direkt auf der HTTP Protokoll
-Ebene, sondern auf einem Java basierten Client API fur die Tests
-aufgesetzt. Die Tests werden in Java implementiert.
-
+Entwicklung. In diesem Scenario wird als nicht zwingend direkt auf der
+HTTP Protokoll Ebene, sondern auf einem Java basierten Client API fur
+die Tests aufgesetzt. Die Tests werden in Java implementiert.
 
 ### Aktuelle Tool Selektion
 
@@ -266,7 +265,7 @@ untersucht und evaluatiert mit einem eigenen README, in welchem auch die
 Preconditions fur das Standalone ausführen der Tools und die Findings
 zum Tools festgehalten sind.
 
-1. [Curl basierte Scripts](tools/postman/README.md)
+1. [Curl basierte Scripts](tools/curl/README.md)
 2. [Ruby basiertes Script](tools/ruby/README.md)
 3. [JBang](tools/jbang/README.md)
 4. [Karate DSL](tools/karate/README.md)
