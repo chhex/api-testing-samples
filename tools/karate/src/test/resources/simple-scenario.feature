@@ -6,6 +6,8 @@ Feature: Some basic Test scenarios against the Sample Project
 
   Scenario: Delete all Testdata , Create, Update and Delete some Testdata
     * configure headers = { Authorization: 'Bearer .... whatever ' }
+    # As part of the set call another feature file
+    * call read('some-reuseable.feature')
     # Delete all Testdata
     Given path 'api/pm'
     When method delete

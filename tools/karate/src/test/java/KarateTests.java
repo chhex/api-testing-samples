@@ -1,11 +1,9 @@
 import com.intuit.karate.junit5.Karate;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;

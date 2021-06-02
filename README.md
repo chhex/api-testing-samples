@@ -93,12 +93,17 @@ Projekte mit definieren.
 
 Das Projekt ist als Multi Module Projekt aufgesetzt:
 
-1. API Schicht (siehe Subprojekt [api](api))
-2. Service Schicht (siehe Subjekt [service](service))
-3. Db Schicht (siehe Subjekt [db](db))
-4. Spring Boot Server mit einem Rest Controller (siehe Subjekt
-   [server](server))
-5. Spring Boot Client (siehe Subjekt [client](client))
+1. API Schicht: [api](api)
+2. Service Schicht: [service](service)
+3. Db Schicht: [db](db)
+4. Spring Boot Server mit einem Rest Controller: [server](server)
+5. Spring Boot Client: [client](client)
+6. Utils: [utils](utils)
+7. Die getesteten Tools mit Java Build Integration: [tools](tools)
+
+     7.1 [Karate DSL](tools/karate)  
+     7.2 [JBang](tools/jbang)
+
 
 Die [API Schicht](api) exportiert mit dem Service Interface
 [PersonManagerService](api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
@@ -131,10 +136,15 @@ bootstrappt und dem Aufrufer zurückgibt. Dh grundsätzlich kann der
 Client mit einer Rest Client Implementation oder der direkten Service
 Implementation ausgeführt werden.
 
-Die Implementation der [Datenbank Sicht](db) basiert aktuell auf dem der
-In Memory Db H2. Die ![Daten Objekte](db/src/main/doc/db.png) mappen 1:1
-zu dem [Schema](db/src/main/resources/sql/schema.sql), welches bei
-Start-up von Spring Data Jdbc kreiert werden. Als Implementations-Schnittstelle wird [Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc)
+Die Implementation der [Datenbank Schicht](db) basiert aktuell auf dem
+der In Memory Db H2. Die Daten Objekte
+
+![Daten Objekte](db/src/main/doc/db.png)
+
+mappen 1:1 zum [Schema](db/src/main/resources/sql/schema.sql), welches
+bei Start-up von Spring Data Jdbc kreiert werden. Als
+Implementations-Schnittstelle wird
+[Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc)
 
 Die
 [Service Schicht](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
@@ -168,6 +178,21 @@ geläufig ist oder schreib faul ist.
 - [Git](https://git-scm.com/downloads)
 - Java Version >= 8 installiert
 - IDE, welches Gradle Projekte importieren kann
+
+Die Shell scripts, welche im Projekt verwendet wurden als Bash Scripts
+geschrieben. Analog können auch fuer Windows cmd.exe oder powershell
+scripts geschrieben werden. Allenfalls ein TO-DO.
+
+Die Gradle Build Scripts werden mit dem Gradle Wrapper ausgeführt. Im
+Text wird immer die Unix Variante
+
+`./gradlew ..... `
+
+verwendet. Auf Windows muss diese einfach mit
+
+`gradlew.bat .....`
+
+ersetzt werden.
 
 ## Tool Evaluation
 
@@ -236,7 +261,7 @@ untersucht und evaluatiert mit einem eigenen README, in welchem auch die
 Preconditions fur das Standalone ausführen der Tools und die Findings
 zum Tools festgehalten sind.
 
-1. [Curl basierte Scripts](tools/curl/README.md)
+1. [Curl basierte Scripts](tools/postman/README.md)
 2. [Ruby basiertes Script](tools/ruby/README.md)
 3. [JBang](tools/jbang/README.md)
 4. [Karate DSL](tools/karate/README.md)
@@ -260,10 +285,11 @@ integriert.
      Methoden
 - [x] Karate und JBang Test Szenarien der 3 Methoden Standalone und als
       Java Tests
+- [x] README's vervollständigen (2 PS)
 
 ### Offen
 
-- [ ] README's vervollständigen (2 PS)
+
 - [ ] Security muss vom initialen Testprojekt nachgezogen werden, als
       "Mock" Implementation in der Server Schicht, dh auf Http Header
       Ebene relevant für die implementieren Testszenarien (2 PS)

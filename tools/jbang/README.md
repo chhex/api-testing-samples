@@ -9,6 +9,9 @@
   beides sind Opensource Package Manager für Windows ala RPM oder APT
   für Linux. Ich verwende / kenne [Chocolatey](https://chocolatey.org).
   Sehr praktisch mit einer sehr grossen Bibliothek
+- Note: Es gibt auch die ["Zero" Install
+  Variante](https://github.com/jbangdev/jbang#zero-install) für Windows
+  und Unixe, die ich allerdings nicht getest habe.
 - Apg konformes Maven settings.xml in ~/.m2/
 
 
@@ -97,20 +100,55 @@ oder z. B.
 
 Auf Windows analog mit Powershell oder cmd.exe
 
-### Build Integration
+### Java Build Integration
 
-Hier mit einem [Gradle Build](build.gradle). Es wird das J [Bang Gradle
+Hier mit einem [Gradle Build](build.gradle). Es wird das [Bang Gradle
 Plugin](https://github.com/jbangdev/jbang-gradle-plugin) verwendet. Es
-gibt auch ein analoges [Maven Plugin](https://github.com/jbangdev/jbang-maven-plugin)
+gibt auch ein analoges
+[Maven Plugin](https://github.com/jbangdev/jbang-maven-plugin)
 
-Mit diesen können JBang scripts in Build Ketten integriert werden.
+Mit diesen können JBang scripts in Java Build Ketten integriert werden.
 
-Auch ist ausgründen der einfacheren Entwicklung von Vorteil, wenn die
-Scripts als Maven oder Gradle Projekte aufgesetzt sind: Stichwort
-Dependency Resolution und Context Sensitivity.
+### Java API
 
+Das Karate DSL stellt auch ein
+[Java API](https://github.com/intuit/karate#java-api) zur Verfügung,
+welches zum Beispiel auch einem JBang Scenario verwendet werden kann:
+
+```
+///usr/bin/env jbang "$0" "$@" ; exit $? 
+//DEPS com.intuit.karate:karate-core:RELEASE
+
+import com.intuit.karate.*;
+import java.util.List;
+
+public class javadsl {
+
+    public static void main(String[] args) {
+        List users = Http.to("https://jsonplaceholder.typicode.com/users")
+                .get().json().asList();
+        Match.that(users.get(0)).contains("{ name: 'Leanne Graham' }");
+        String city = Json.of(users).get("$[0].address.city");
+        Match.that("Gwenborough").isEqualTo(city);
+        System.out.println("\n*** second user: " + Json.of(users.get(1)).toString());
+    }
+
+}
+```
+### IDE Integration
+
+Es gibt keine speziellen JBang IDE's respective Plugins. Grundsätzlich
+sind die Scripts ja auch reines Java mit etwas Beigemüse.
+
+Aber auch Gründen der einfacheren Entwicklung ist es von Vorteil, wenn
+die JBang Scripts als Maven oder Gradle Projekte aufgesetzt sind:
+Stichwort Dependency Resolution und Context Sensitivity.
 
 ## Offener Punkt
 
 - [ ] Das packaging der JBang Test Scripts. Als Git Repository,
       höchstwahrscheinlich.
+- [ ] Consider eigenes Apg spezifisch JBang Repo, in sogenannten
+      Catalogs, see https://github.com/jbangdev/jbang#catalogs. Das
+      sollte sehr einfach sein.
+- [ ] Debuggen muss noch untersucht werden
