@@ -165,6 +165,7 @@ geläufig ist oder schreib faul ist.
 
 ### Preconditions
 
+- [Git](https://git-scm.com/downloads)
 - Java Version >= 8 installiert
 - IDE, welches Gradle Projekte importieren kann
 
