@@ -71,7 +71,32 @@ Da der SpringBoot Testrunner die Karate Test Annotationen nicht kennt,
 muss Spring Boot von Hand gestartet werden, siehe
 [KarateTests.java: Line 28](src/test/java/KarateTests.java#L28)
 
+### Java API
 
+Das Karate DSL stellt auch ein
+[Java API](https://github.com/intuit/karate#java-api) zur Verfügung,
+welches zum Beispiel auch einem JBang Scenario verwendet werden kann:
+
+```
+///usr/bin/env jbang "$0" "$@" ; exit $? 
+//DEPS com.intuit.karate:karate-core:RELEASE
+
+import com.intuit.karate.*;
+import java.util.List;
+
+public class javadsl {
+
+    public static void main(String[] args) {
+        List users = Http.to("https://jsonplaceholder.typicode.com/users")
+                .get().json().asList();
+        Match.that(users.get(0)).contains("{ name: 'Leanne Graham' }");
+        String city = Json.of(users).get("$[0].address.city");
+        Match.that("Gwenborough").isEqualTo(city);
+        System.out.println("\n*** second user: " + Json.of(users.get(1)).toString());
+    }
+
+}
+```
 ### IDE Integration
 
 Damit das DSL erkannt und unterstützt wird, braucht es spezielle IDE
