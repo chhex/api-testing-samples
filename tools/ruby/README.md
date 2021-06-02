@@ -10,5 +10,5 @@
 
 ## Test Script
 
-Siehe [testscenario.rb](testscenario.rb)
+Siehe [testscenario.rb](testscenario.rb), welches das Ruby Gem [rest-client](https://github.com/rest-client/rest-client) verwendet
 
