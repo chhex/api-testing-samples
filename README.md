@@ -148,7 +148,7 @@ bei Start-up von Spring Data Jdbc kreiert werden, siehe auch als
 Beispiel
 [AddressTable.java](db/src/main/java/com/apgsga/testing/sample/db/AddressTable.java)
 Als Implementations-Schnittstelle wird
-[Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc)
+[Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc) verwendet.
 
 Die
 [Service Schicht](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
