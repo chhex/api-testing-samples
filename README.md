@@ -196,7 +196,7 @@ https://medium.com/@alicealdaine/top-10-api-testing-tools-rest-soap-services-539
 17. [Helium](https://github.com/stanfy/helium) : Open Source
 18. [rest-client](https://github.com/rest-client/rest-client) : Open
     Source
-19. [Jbang](https://github.com/jbangdev/jbang) : Open Source
+19. [JBang](https://github.com/jbangdev/jbang) : Open Source
 
 Was beim ersten Durchblick auffällt: Es gibt Tools, wie zb Swagger,
 welches den ganzen Life-cycle abdecken , dh auch die Spezifikation und
