@@ -8,7 +8,7 @@ Definition einer API Testing Toolchain verwendet
 ## Integrations Testing Apg Ist
 
 ### Ansätze Testdaten Bereitstellung
-- (a) : außerhalb der Tests gemanagte und vordefinierte Testdaten für
+- (a) außerhalb der Tests gemanagte und vordefinierte Testdaten für
   einen applications Kontext (Light)
 - (b) (automatisierte) Suche nach geeigneten Testdaten (Clones, Light)
 - (c) (automatisiertes) Kreieren von Testdaten (Clones,
@@ -17,7 +17,7 @@ Definition einer API Testing Toolchain verwendet
 
 ### Test "End Points" der Integrations Tests
 
-- Db: F- und V- Schicht (View und Stored Procedures)
+- Db: F- und V-Schicht (View und Stored Procedures)
 - Spring Service Komponenten: @Service - , @Component- Annotationen
 - Spring Rest Controller: Tests gegen laufenden Container
 - Spring Mock Rest Controller: Test gegen gemockte Container Environment
@@ -36,15 +36,16 @@ Definition einer API Testing Toolchain verwendet
 
 - [JUnit <= 4.x](https://junit.org/junit4/) : Java "Standard" mit
   Limitations
-- [Junit >= 5 (Jupiter)](https://junit.org/junit5/) : Adressiert Junit 4
-  an below Limitations
-- [DbUnit](http://dbunit.sourceforge.net) : Vor allem fuer Datenbank
-  zentrisches Testen
-- [TestNg](https://testng.org/doc/) : Adressiert Junit 4 an below
-  Limitation, Test Gruppe , Ablaeufe etc
-- [Spring Boot Test](https://spring.io/guides/gs/testing-web/) : Spring Boot instrumentieren fuer JUnit Tests
-- [Spock](https://spockframework.org) : Groovy basiertes Testframework,
-  intuitiv , addressiert Adressiert Junit 4  an below Limitations
+- [Junit >= 5 (Jupiter)](https://junit.org/junit5/) : Adressiert <=
+  Junit 4 Limitations
+- [DbUnit](http://dbunit.sourceforge.net) : Vor allem fur Datenbank
+  zentrisches Testen aus einer Java Umgebung
+- [TestNg](https://testng.org/doc/) : Adressiert <= Junit 4 Limitations,
+  Test Gruppen , Abläufe, Test Methoden spezifische Setups etc
+- [Spring Boot Test](https://spring.io/guides/gs/testing-web/) : Spring
+  Boot instrumentieren fur JUnit Tests
+- [Spock](https://spockframework.org) : Groovy basiertes Test Framework,
+  intuitiv , DSL, adressiert <= Junit 4 Limitations
 
 ### Automatisiertes Testen von IT21 Funktionalität
 
@@ -60,12 +61,12 @@ funktionalen Integrationstests getestet:
 
 ## Scope des Projektes
 
-Wahl einer Toolchain, welches automatisierte Integrations Tests von IT21
+Wahl einer Toolchain, welches automatisierte Integrationstests von IT21
 Funktionalität, die auf dem [Rest Api](https://restfulapi.net) eines
-Anwendungsgebietes aufsetzen.
+Anwendungsgebietes aufsetzen, ermöglicht.
 
 Proof of Concept des Ansatzes anhand eines ausgewählten
-Anwendungsgebietes.
+Anwendungsgebietes (Verkauf).
 
 Grundsätzlich baut das Projekt auf den Test Erfahrungen in der Apg auf.
 Es kann mit den erarbeiteten Findings allenfalls Input zur Verbesserung
@@ -75,14 +76,14 @@ wird aber nicht grundsätzlich an den immanenten Restriktionen
 
 Das Projekt soll jedoch die Erwartungen, respektive die Voraussetzungen
 aus Sicht des Testens an die Restschnittstellen der Java Service
-Projekte definieren.
+Projekte mit definieren.
 
 ## Test Projekt
 
 ### Motivation
 
 - Konzentration / Reduktion / Vereinfachung auf die das Wesentliche
-- Was ist ein Rest API?
+- Was ist ein Rest API
 - Building Blocks / Schichten
 - Erste Tool Evaluation / Eindrücke
 - Das Testprojekt ist einfach erweiterbar, auch um gegebenen Falls neue
@@ -99,9 +100,9 @@ Das Projekt ist als Multi Module Projekt aufgesetzt:
    [server](server))
 5. Spring Boot Client (siehe Subjekt [client](client))
 
-Die [API Schicht](api) export an einem dem Service Interface
+Die [API Schicht](api) exportiert mit dem Service Interface
 [PersonManagerService](api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
-Value Object wie sie von einem Client verwendet werden.
+Value Objects wie sie von einem Client verwendet werden.
 
 Das Model der Value Object ist das folgende
 
@@ -114,7 +115,9 @@ Das Api hat 4 Implementation:
 2. Der Restcontroller
    [PersonManagerController](server/src/main/java/com/apgsga/testing/sample/server/PersonManagerController.java)
    in der [Server Schicht](server)
-3. Ein Spring Resttemplate Wrapper
+3. Ein
+   [Spring Rest Template](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)
+   basierter
    [RestClient](client/src/main/java/com/apgsga/testing/sample/client/rest/RestClient.java)
    in der [Client Schicht](client)
 
@@ -124,22 +127,23 @@ welcher abhängig vom aktiven spring profile "rest" oder "direct" den
 [RestClient](client/src/main/java/com/apgsga/testing/sample/client/rest/RestClient.java)
 oder die direkte Service
 [Service Implementation](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
-bootstrapped. Dh grundsätzlich kann der Client mit einer Rest Client
-Implementation oder der direkten Service Implementation ausgeführt
-werden.
+bootstrappt und dem Aufrufer zurückgibt. Dh grundsätzlich kann der
+Client mit einer Rest Client Implementation oder der direkten Service
+Implementation ausgeführt werden.
 
 Die Implementation der [Datenbank Sicht](db) basiert aktuell auf dem der
 In Memory Db H2. Die ![Daten Objekte](db/src/main/doc/db.png) mappen 1:1
 zu dem [Schema](db/src/main/resources/sql/schema.sql), welches bei
-Start-up von Spring Data Jdbc kreiert werden.
+Start-up von Spring Data Jdbc kreiert werden. Als Implementations-Schnittstelle wird [Spring Data Jdbc](https://spring.io/projects/spring-data-jdbc)
 
 Die
 [Service Schicht](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerServiceImpl.java)
 is der Mediator zwischen API Objekten und der Datenbank Schicht.
-Grundsätzlich werden in unterschiedlichen Verwendungsszenarien die
-Daten dieser beiden Schicht immer wieder gleich gemappt, deshalb ist das
+Grundsätzlich werden in unterschiedlichen Verwendungsszenarien die Daten
+dieser beiden Schicht immer wieder gleich gemappt, deshalb ist das
 Mapping zentralisiert im
 [PersonManagerMapper](service/src/main/java/com/apgsga/testing/sample/service/PersonManagerMapper.java)
+mit [Mapstruct](https://mapstruct.org)
 
 Das Projekt zeigt auch – nicht abschließend – die verschiedenen
 automatisierten Java basierten Tests der unterschiedlichen Schichten:
@@ -149,9 +153,10 @@ automatisierten Java basierten Tests der unterschiedlichen Schichten:
 2. Die Service Sicht in
    [PersonManagerServiceImplTests](service/src/test/java/com/apgsga/testing/sample/service/PersonManagerServiceImplTests.java)
 
-In der aktuellen Implementation fehlen, die Client and die
-RestController Tests, da diese der Gegenstand der Toolchain Evaluation
-ist, siehe auch die Sub-directories von [tools](tools)
+In der aktuellen Implementation fehlen die Client and die RestController
+Tests, da diese der Gegenstand der Toolchain Evaluation ist, siehe auch
+die Sub-directories von [tools](tools) und die dort implementiert
+werden.
 
 
 ## Tool Evaluation
@@ -192,7 +197,14 @@ Im Weiteren gibt es solche, welche ein script bares Rest Client DSL
 anbieten. Andere welche ein UI basiertes interaktives Zusammenstellen
 von Rest Aufrufen erlauben.
 
-Und natürlich Kombinationen
+Alle Tools , ausser [Jbang](https://github.com/jbangdev/jbang) setzen
+auf dem Http Protokoll auf.
+
+[JBang](https://github.com/jbangdev/jbang) ist kein Test Framework, aber
+erlaubt ein scripting ähnliches Entwicklererlebnis fur die Java
+Entwicklung. In diesem Scenario wird nicht direkt auf der HTTP Protokoll
+Ebene, sondern auf einem JAva basierten Client API fur die Tests
+aufgesetzt.
 
 
 ### Aktuelle Tool Selektion
@@ -257,6 +269,4 @@ Also ca noch ca 3 PT verbleibender Aufwand
 
 - [ ] Test Setup via Rest API oder direkt via JDBC?
 - [ ] Verbesserung / Vereinheitlichung Java basierter Tests, Scope?
-- [ ] Testen via Rest API vs direktes Testen auf der Datenbank
-      Schnittstelle, allenfalls mit some Java/ Script glue darum herum
-      (JBang Scenario)
+
