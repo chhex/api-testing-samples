@@ -107,32 +107,6 @@ gibt auch ein analoges
 
 Mit diesen können JBang scripts in Java Build Ketten integriert werden.
 
-### Java API
-
-Das Karate DSL stellt auch ein
-[Java API](https://github.com/intuit/karate#java-api) zur Verfügung,
-welches zum Beispiel auch einem JBang Scenario verwendet werden kann:
-
-```
-///usr/bin/env jbang "$0" "$@" ; exit $? 
-//DEPS com.intuit.karate:karate-core:RELEASE
-
-import com.intuit.karate.*;
-import java.util.List;
-
-public class javadsl {
-
-    public static void main(String[] args) {
-        List users = Http.to("https://jsonplaceholder.typicode.com/users")
-                .get().json().asList();
-        Match.that(users.get(0)).contains("{ name: 'Leanne Graham' }");
-        String city = Json.of(users).get("$[0].address.city");
-        Match.that("Gwenborough").isEqualTo(city);
-        System.out.println("\n*** second user: " + Json.of(users.get(1)).toString());
-    }
-
-}
-```
 ### IDE Integration
 
 Es gibt keine speziellen JBang IDE's respective Plugins. Grundsätzlich
@@ -142,7 +116,7 @@ Aber auch Gründen der einfacheren Entwicklung ist es von Vorteil, wenn
 die JBang Scripts als Maven oder Gradle Projekte aufgesetzt sind:
 Stichwort Dependency Resolution und Context Sensitivity.
 
-## Offener Punkt
+## Offene Punkte
 
 - [ ] Das packaging der JBang Test Scripts. Als Git Repository,
       höchstwahrscheinlich.
