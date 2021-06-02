@@ -23,7 +23,7 @@ namen sind allerdings nicht relevant. Das Beispiel Script ist hier
 
 ### JBang
 
-Das File hat aber einen JBang spezifischen Vorspann:
+Das File hat einen JBang spezifischen Vorspann:
 
 ![jbang_vor.png](screenshots/jbang_vor.png)
 
