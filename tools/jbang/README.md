@@ -97,6 +97,18 @@ oder z. B.
 
 Auf Windows analog mit Powershell oder cmd.exe
 
+### Build Integration
+
+Hier mit einem [Gradle Build](build.gradle). Es wird das J [Bang Gradle
+Plugin](https://github.com/jbangdev/jbang-gradle-plugin) verwendet. Es
+gibt auch ein analoges [Maven Plugin](https://github.com/jbangdev/jbang-maven-plugin)
+
+Mit diesen können JBang scripts in Build Ketten integriert werden.
+
+Auch ist ausgründen der einfacheren Entwicklung von Vorteil, wenn die
+Scripts als Maven oder Gradle Projekte aufgesetzt sind: Stichwort
+Dependency Resolution und Context Sensitivity.
+
 
 ## Offener Punkt
 
