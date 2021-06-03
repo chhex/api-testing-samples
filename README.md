@@ -1,6 +1,6 @@
 # Api Testing in Apg
 
-Ein labor projekt mit typischen, wenn auch simplen Rest API Verwendungsszenarien
+Ein Labor Projekt mit typischen Rest API Verwendungsszenarien, mit einem einfachen, aber nicht ganz trivialen Domain Model.
 
 Das Projekt wird im Zuge von ersten Iterationen fur die Evalution und
 Definition einer API Testing Toolchain verwendet
