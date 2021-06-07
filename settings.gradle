@@ -1,4 +1,4 @@
-rootProject.name = 'api-testing-sample2'
+rootProject.name = 'api-testing-sample'
 include 'api'
 include 'db'
 include 'service'
