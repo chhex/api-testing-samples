@@ -1,5 +1,6 @@
 plugins {
-	id 'dev.jbang' version '0.2.0'
+	// TODO (che, 8.6.21) : Doesn't work in eclipse and on windows
+	// id 'dev.jbang' version '0.2.0'
 }
 description = 'JBang Test Scripts'
 
@@ -11,12 +12,14 @@ dependencies {
 	implementation("org.junit.jupiter:junit-jupiter-api")
 
 }
-tasks.named ('jbang') {
-	script = 'tools/jbang/scripts/simple-test-scenario.java'
-	args = 'direct'
-}
-test.environment "JBANG_REPO", repositories.mavenLocal().url
-test.finalizedBy(jbang)
+// TODO (che, 8.6.21) : Doesn't work in eclipse and on windows
+
+//tasks.named ('jbang') {
+//	script = 'tools/jbang/scripts/simple-test-scenario.java'
+//	args = 'direct'
+//}
+//test.environment "JBANG_REPO", repositories.mavenLocal().url
+//test.finalizedBy(jbang)
 
 sourceSets {
 	main {
