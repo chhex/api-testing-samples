@@ -6,6 +6,7 @@ dependencies {
 	testImplementation project(':api-testing-sample-api')
 	testImplementation project(':api-testing-sample-db')
 	testImplementation project(':api-testing-sample-service')
+	testImplementation project(':api-testing-sample-server')
 	testImplementation project(':api-testing-sample-server').sourceSets.main.output
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude group: "org.junit.vintage", module: "junit-vintage-engine"

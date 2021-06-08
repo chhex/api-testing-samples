@@ -18,7 +18,7 @@ public class KarateTests {
 
     @BeforeAll
     public static void setUp() {
-        context = SpringApplication.run(com.apgsga.testing.sample.server.SpringBootApp.class, new String[]{});
+        context = SpringApplication.run(SpringBootApp.class, new String[]{});
     }
 
     @AfterAll
