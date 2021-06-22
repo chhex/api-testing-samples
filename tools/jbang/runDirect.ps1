@@ -1,0 +1,1 @@
+jbang .\scripts\simple-test-scenario.java direct
