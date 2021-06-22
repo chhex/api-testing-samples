@@ -93,20 +93,20 @@ Projekte mit definieren.
 Das Projekt ist als Multi Module Projekt aufgesetzt. Im Folgenden
 aufgeführt mit einem Link zum entsprechenden subdirectory:
 
-1. API Schicht: [api](api)
-2. Service Schicht: [service](service)
-3. Db Schicht: [db](db)
-4. Spring Boot Server mit einem Rest Controller: [server](server)
-5. Spring Boot Client: [client](client)
-6. Utils: [utils](utils)
-7. Die getesteten Tools mit Java Build Integration: [tools](tools)
+1. API Schicht: [api](./api)
+2. Service Schicht: [service](./service)
+3. Db Schicht: [db](./db)
+4. Spring Boot Server mit einem Rest Controller: [server](./server)
+5. Spring Boot Client: [client](./client)
+6. Utils: [utils](./utils)
+7. Die getesteten Tools mit Java Build Integration: [tools](./tools)
 
-     7.1 [Karate DSL](tools/karate)  
-     7.2 [JBang](tools/jbang)
+     7.1 [Karate DSL](./tools/karate)  
+     7.2 [JBang](./tools/jbang)
 
 
 Die [API Schicht](api) exportiert mit dem Service Interface
-[PersonManagerService](api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
+[PersonManagerService](./api/src/main/java/com/apgsga/testing/sample/api/PersonManagerService.java)
 Value Objects wie sie von einem Client verwendet werden.
 
 Das Model der Value Object ist das folgende
